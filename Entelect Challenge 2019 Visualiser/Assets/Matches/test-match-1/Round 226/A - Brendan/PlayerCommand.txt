@@ -1,0 +1,3 @@
+Command: shoot S
+Execution time: 0ms
+Exception: null

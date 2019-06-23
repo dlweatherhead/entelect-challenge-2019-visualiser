@@ -1,0 +1,3 @@
+Command: move 22 4
+Execution time: 0ms
+Exception: null
