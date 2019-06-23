@@ -1,5 +1,5 @@
 namespace DLW.Directory {
     public interface IDirectorySelectorAction {
-        void OnSelected(string title);
+        void OnSelected(string absoluteDirectory);
     }
 }

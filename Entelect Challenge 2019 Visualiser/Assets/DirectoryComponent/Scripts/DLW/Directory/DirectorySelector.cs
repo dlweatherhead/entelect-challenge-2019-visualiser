@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DLW.Directory {
     public class DirectorySelector : MonoBehaviour {
-        public IDirectorySelectorAction directorySelectorAction;
+        public GameObject directorySelectorAction;
         public string directory;
 
         public GameObject contentListParent;
@@ -37,8 +37,8 @@ namespace DLW.Directory {
             }
         }
 
-        public void OnDirectoryButtonClicked(string title) {
-            directorySelectorAction.OnSelected(title);
+        public void OnDirectoryButtonClicked(string absoluteDirectory) {
+            directorySelectorAction.GetComponent<IDirectorySelectorAction>().OnSelected(absoluteDirectory);
         }
     }
 }
