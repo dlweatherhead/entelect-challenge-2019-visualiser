@@ -1,3 +1,0 @@
-Command: shoot E
-Execution time: 1ms
-Exception: null

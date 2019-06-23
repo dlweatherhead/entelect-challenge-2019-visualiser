@@ -1,3 +1,0 @@
-Command: shoot SW
-Execution time: 1ms
-Exception: null
