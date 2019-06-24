@@ -2,11 +2,11 @@ using System.IO;
 using Newtonsoft.Json;
 
 namespace EC2019.Utility {
-    public class FileParser<T> {
+    public class JsonFileParser<T> {
 
         private readonly string filePath;
         
-        public FileParser(string filePath) {
+        public JsonFileParser(string filePath) {
             this.filePath = filePath;
         }
 
