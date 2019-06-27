@@ -11,7 +11,7 @@ namespace EC2019.Entity
         public int X { get; set; }
         [JsonProperty("y")]
         public int Y { get; set; }
-        [JsonProperty("tileType")]
+        [JsonProperty("type")]
         public string TileType { get; set; }
     }
 }

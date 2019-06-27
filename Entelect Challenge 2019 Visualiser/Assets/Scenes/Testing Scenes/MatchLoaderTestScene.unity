@@ -199,7 +199,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.17071612, g: 0.16941082, b: 0.254717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -216,7 +216,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 17
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -240,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 16, y: 16, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -348,7 +348,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replayLoader: {fileID: 390514484}
-  fauxTile: {fileID: 4666836485307506054, guid: dfa75875630535d4f803f97efcf6b58f,
+  airTile: {fileID: 1005008173817177596, guid: 633a749f2203b334490436a82f236443, type: 3}
+  dirtTile: {fileID: 1449334168043516484, guid: 418ef7cac5c37a94ab4ec191543a6ed3,
+    type: 3}
+  spaceTile: {fileID: 6333513532922587772, guid: 08532b0e01779744698575fc578e485e,
     type: 3}
 --- !u!4 &1357594481
 Transform:

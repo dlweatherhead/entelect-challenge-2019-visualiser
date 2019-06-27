@@ -7,7 +7,9 @@ namespace EC2019 {
 
         public ReplayLoader replayLoader;
 
-        public GameObject fauxTile;
+        public GameObject airTile;
+        public GameObject dirtTile;
+        public GameObject spaceTile;
 
         private List<Round> rounds;
         
@@ -23,17 +25,29 @@ namespace EC2019 {
         }
 
         private void PopulateGameMap() {
-            var round = rounds[0];
+            var round = rounds[5];
 
             var map = round.Map;
 
-            foreach (var col in map) {
-                foreach (var row in col) {
-                    var x = row.X;
-                    var y = row.Y;
-                    Instantiate(fauxTile, new Vector3(x, y, 0f), Quaternion.identity);
+            foreach (var row in map) {
+                foreach (var tile in row) {
+                    createTile(tile);
                 }
             }
+        }
+
+        private void createTile(Tile tile) {
+            if (TileType.AIR.Equals(tile.TileType)) {
+                instantiateTile(airTile, tile.X, tile.Y);
+            } else if (TileType.DIRT.Equals(tile.TileType)) {
+                instantiateTile(dirtTile, tile.X, tile.Y);
+            } else if (TileType.SPACE.Equals(tile.TileType)) {
+                instantiateTile(spaceTile, tile.X, tile.Y);
+            }
+        }
+
+        private void instantiateTile(GameObject o, float x, float y) {
+            Instantiate(o, new Vector3(x, y, 0f), Quaternion.identity);
         }
         
     }
