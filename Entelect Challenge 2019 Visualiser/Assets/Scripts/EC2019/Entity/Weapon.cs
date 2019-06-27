@@ -5,8 +5,8 @@ namespace EC2019.Entity
     public class Weapon
     {
         [JsonProperty("damage")]
-        private int Damage { get; set; }
+        public int Damage { get; set; }
         [JsonProperty("range")]
-        private int Range { get; set; }
+        public int Range { get; set; }
     }
 }

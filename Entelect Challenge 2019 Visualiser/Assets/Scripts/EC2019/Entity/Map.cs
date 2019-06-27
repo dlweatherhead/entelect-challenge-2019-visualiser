@@ -6,6 +6,6 @@ namespace EC2019.Entity
     public class Map
     {
         [JsonProperty("tiles")]
-        private List<List<Tile>> Tiles { get; set; }
+        public List<List<Tile>> Tiles { get; set; }
     }
 }
