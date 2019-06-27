@@ -353,6 +353,10 @@ MonoBehaviour:
     type: 3}
   spaceTile: {fileID: 6333513532922587772, guid: 08532b0e01779744698575fc578e485e,
     type: 3}
+  playerAWorm: {fileID: 5687872557090893527, guid: 88e21dfd5c47b7f419933595230b47e7,
+    type: 3}
+  playerBWorm: {fileID: 7720393958263324396, guid: 94a89d729d5d5084b807accd2516ad16,
+    type: 3}
 --- !u!4 &1357594481
 Transform:
   m_ObjectHideFlags: 0

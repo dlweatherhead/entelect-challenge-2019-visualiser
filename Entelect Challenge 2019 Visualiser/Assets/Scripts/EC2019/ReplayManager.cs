@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using EC2019.Entity;
 using UnityEngine;
@@ -11,42 +12,67 @@ namespace EC2019 {
         public GameObject dirtTile;
         public GameObject spaceTile;
 
+        public GameObject playerAWorm;
+        public GameObject playerBWorm;
+        
         private List<Round> rounds;
         
         void Start() {
             ReplayLoader.roundsFinishedLoadingEvent += RoundsFinishedLoading;
         }
-        
-        void RoundsFinishedLoading(List<Round> rounds) {
-            this.rounds = rounds;
+
+        void RoundsFinishedLoading(List<Round> loadedRounds) {
+            rounds = loadedRounds;
             Debug.Log("Rounds finished loading!");
             
-            PopulateGameMap();
+            StartCoroutine(PopulateGameMap());
         }
 
-        private void PopulateGameMap() {
-            var round = rounds[5];
+        private IEnumerator PopulateGameMap() {
+            foreach (var round in rounds) {
+                foreach (var row in round.Map) {
+                    foreach (var tile in row) {
+                        createTile(tile);
+                    }
+                }
+                
+                foreach (var worm in round.PlayerA.Worms) {
+                    createWormPlayerA(worm);
+                }
 
-            var map = round.Map;
-
-            foreach (var row in map) {
-                foreach (var tile in row) {
-                    createTile(tile);
+                foreach (var opponent in round.Opponents) {
+                    foreach (var worm in opponent.Worms) {
+                        createWormPlayerB(worm);
+                    }
+                }
+                
+                yield return new WaitForSeconds(2f);
+                foreach (var t in GameObject.FindGameObjectsWithTag("Tile")) {
+                    Destroy(t);
+                }
+                foreach (var w in GameObject.FindGameObjectsWithTag("Worm")) {
+                    Destroy(w);
                 }
             }
         }
 
         private void createTile(Tile tile) {
-            if (TileType.AIR.Equals(tile.TileType)) {
-                instantiateTile(airTile, tile.X, tile.Y);
-            } else if (TileType.DIRT.Equals(tile.TileType)) {
-                instantiateTile(dirtTile, tile.X, tile.Y);
-            } else if (TileType.SPACE.Equals(tile.TileType)) {
-                instantiateTile(spaceTile, tile.X, tile.Y);
-            }
+            if (tile.TileType == TileType.AIR)
+                InstantiateObject(airTile, tile.X, tile.Y);
+            else if (tile.TileType == TileType.DIRT)
+                InstantiateObject(dirtTile, tile.X, tile.Y);
+            else if (tile.TileType == TileType.SPACE) InstantiateObject(spaceTile, tile.X, tile.Y);
         }
 
-        private void instantiateTile(GameObject o, float x, float y) {
+        private void createWormPlayerA(Worm worm) {
+            InstantiateObject(playerAWorm, worm.Position.x, worm.Position.y);
+        }
+        
+        private void createWormPlayerB(Worm worm) {
+            InstantiateObject(playerBWorm, worm.Position.x, worm.Position.y);
+        }
+
+        private void InstantiateObject(GameObject o, float x, float y) {
             Instantiate(o, new Vector3(x, y, 0f), Quaternion.identity);
         }
         
