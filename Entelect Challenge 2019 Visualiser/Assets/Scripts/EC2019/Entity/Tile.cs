@@ -8,10 +8,10 @@ namespace EC2019.Entity
     public class Tile
     {
         [JsonProperty("x")]
-        private int X { get; set; }
+        public int X { get; set; }
         [JsonProperty("y")]
-        private int Y { get; set; }
+        public int Y { get; set; }
         [JsonProperty("tileType")]
-        private string TileType { get; set; }
+        public string TileType { get; set; }
     }
 }

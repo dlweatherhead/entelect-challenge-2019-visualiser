@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EC2019.Entity
 {
-    public class Worm : MonoBehaviour
+    public class Worm
     {
         [JsonProperty("id")]
         private int Id { get; set; }
