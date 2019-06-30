@@ -1,0 +1,3 @@
+Command: shoot NE
+Execution time: 0ms
+Exception: null
