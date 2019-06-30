@@ -14,6 +14,8 @@ namespace EC2019 {
 
         public GameObject playerAWorm;
         public GameObject playerBWorm;
+
+        public float timePerRound = 1f;
         
         private List<Round> rounds;
         
@@ -46,7 +48,8 @@ namespace EC2019 {
                     }
                 }
                 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(timePerRound);
+                
                 foreach (var t in GameObject.FindGameObjectsWithTag("Tile")) {
                     Destroy(t);
                 }

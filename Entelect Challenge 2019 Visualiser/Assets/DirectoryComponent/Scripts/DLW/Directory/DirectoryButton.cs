@@ -21,6 +21,8 @@ namespace DLW.Directory
 
 		public void HandleClick() {
 			directorySelector.OnDirectoryButtonClicked (fullPath);
+
+			GameObject.FindGameObjectWithTag("DirectoryScrollView").SetActive(false);
 		}
 	}
 }
