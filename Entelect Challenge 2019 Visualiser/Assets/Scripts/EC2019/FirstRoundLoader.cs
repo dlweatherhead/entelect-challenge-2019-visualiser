@@ -33,12 +33,6 @@ namespace EC2019 {
             foreach (var worm in round.PlayerA.Worms) {
                 createWormPlayerA(worm);
             }
-
-            foreach (var opponent in round.Opponents) {
-                foreach (var worm in opponent.Worms) {
-                    createWormPlayerB(worm);
-                }
-            }
         }
 
         private void createTile(Tile tile) {
@@ -46,20 +40,17 @@ namespace EC2019 {
                 InstantiateObject(airTile, tile.X, tile.Y);
             else if (tile.TileType == TileType.DIRT)
                 InstantiateObject(dirtTile, tile.X, tile.Y);
-            else if (tile.TileType == TileType.SPACE) 
+            else if (tile.TileType == TileType.SPACE)
                 InstantiateObject(spaceTile, tile.X, tile.Y);
         }
 
         private void createWormPlayerA(Worm worm) {
-            InstantiateObject(playerAWorm, worm.Position.x, worm.Position.y);
+            var wc = InstantiateObject(playerAWorm, worm.Position.x, worm.Position.y);
+            wc.GetComponent<WormComponent>().id = worm.Id;
         }
 
-        private void createWormPlayerB(Worm worm) {
-            InstantiateObject(playerBWorm, worm.Position.x, worm.Position.y);
-        }
-
-        private static void InstantiateObject(GameObject o, float x, float y) {
-            Instantiate(o, new Vector3(x, y, 0f), Quaternion.identity);
+        private static GameObject InstantiateObject(GameObject o, float x, float y) {
+            return Instantiate(o, new Vector3(x, y, 0f), Quaternion.identity);
         }
     }
 }

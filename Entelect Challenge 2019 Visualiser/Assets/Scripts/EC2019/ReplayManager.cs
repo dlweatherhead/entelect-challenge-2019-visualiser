@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EC2019 {
     public class ReplayManager : MonoBehaviour {
-        public delegate void NextRoundUpdateWorms(Worm worm);
+        public delegate void NextRoundUpdateWorms(List<Worm> worm);
 
         public static event NextRoundUpdateWorms nextRoundUpdateWormsEvent;
 
@@ -31,8 +31,16 @@ namespace EC2019 {
             while (true) {
                 Debug.Log("Round: " + currentRound);
                 var round = rounds[currentRound];
-
-                // Notify all listeners of round start
+                
+                Debug.Log("Current Worm: " + round.CurrentWormId);
+                
+                if (nextRoundUpdateWormsEvent != null) {
+                    nextRoundUpdateWormsEvent(round.PlayerA.Worms);
+                    var opponents = round.Opponents;
+                    foreach (var opponent in opponents) {
+                        nextRoundUpdateWormsEvent(opponent.Worms);
+                    }
+                }
 
                 yield return new WaitForSeconds(timePerRound);
                 currentRound++;
