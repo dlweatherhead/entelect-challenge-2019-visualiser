@@ -348,14 +348,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replayLoader: {fileID: 390514484}
-  airTile: {fileID: 1005008173817177596, guid: 633a749f2203b334490436a82f236443, type: 3}
-  dirtTile: {fileID: 1449334168043516484, guid: 418ef7cac5c37a94ab4ec191543a6ed3,
+  airTile: {fileID: 861209129974951276, guid: 0df8a42a343131940824872ee3c20695, type: 3}
+  dirtTile: {fileID: 3375268169464659114, guid: ed0a42cc61d5acb49bf16cdbaea9d4fc,
     type: 3}
-  spaceTile: {fileID: 6333513532922587772, guid: 08532b0e01779744698575fc578e485e,
+  spaceTile: {fileID: 9186391639147234100, guid: 58f4ef81aace59e418d9c99b52e7803e,
     type: 3}
-  playerAWorm: {fileID: 5687872557090893527, guid: 88e21dfd5c47b7f419933595230b47e7,
+  playerAWorm: {fileID: 7481542133969421867, guid: 2a204396a3a71eb45976ec4ff69c769d,
     type: 3}
-  playerBWorm: {fileID: 7720393958263324396, guid: 94a89d729d5d5084b807accd2516ad16,
+  playerBWorm: {fileID: 4237762236544496440, guid: 74ca0746fa3d78d43a2257c6f3ec8956,
     type: 3}
 --- !u!4 &1357594481
 Transform:
