@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8312464645162186049}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DirtTile
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 875637268010047244}
   - component: {fileID: 2521725881574726982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DirtTileGraphic
   m_TagString: Tile
   m_Icon: {fileID: 0}
@@ -120,11 +120,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8312464645162186049}
     m_Modifications:
-    - target: {fileID: 1449334168043516484, guid: 418ef7cac5c37a94ab4ec191543a6ed3,
-        type: 3}
-      propertyPath: m_Name
-      value: DirtTileGraphic
-      objectReference: {fileID: 0}
     - target: {fileID: 2516998083076576711, guid: 418ef7cac5c37a94ab4ec191543a6ed3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -179,6 +174,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449334168043516484, guid: 418ef7cac5c37a94ab4ec191543a6ed3,
+        type: 3}
+      propertyPath: m_Name
+      value: DirtTileGraphic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449334168043516484, guid: 418ef7cac5c37a94ab4ec191543a6ed3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 418ef7cac5c37a94ab4ec191543a6ed3, type: 3}
