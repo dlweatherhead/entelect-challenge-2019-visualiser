@@ -1,3 +1,0 @@
-Command: move 30 17
-Execution time: 6ms
-Exception: null

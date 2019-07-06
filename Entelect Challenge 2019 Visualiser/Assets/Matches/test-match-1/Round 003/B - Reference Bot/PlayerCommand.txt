@@ -1,3 +1,0 @@
-Command: move 9 5
-Execution time: 1ms
-Exception: null
