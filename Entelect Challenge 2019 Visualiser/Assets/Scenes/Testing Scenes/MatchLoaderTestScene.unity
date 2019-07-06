@@ -627,7 +627,12 @@ PrefabInstance:
     - target: {fileID: 4928709993011439744, guid: fb550f8b23cc8024ebafe99ef589f697,
         type: 3}
       propertyPath: directory
-      value: /Matches
+      value: /../../Matches
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928709993011439744, guid: fb550f8b23cc8024ebafe99ef589f697,
+        type: 3}
+      propertyPath: matchesDirectory
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4928709992863376024, guid: fb550f8b23cc8024ebafe99ef589f697,
         type: 3}

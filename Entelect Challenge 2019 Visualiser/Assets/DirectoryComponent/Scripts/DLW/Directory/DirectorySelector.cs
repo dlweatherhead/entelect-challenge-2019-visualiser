@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DLW.Directory {
     public class DirectorySelector : MonoBehaviour {
         public GameObject directorySelectorAction;
-        public string directory;
+        public string directory = "/../../Matches";
 
         public GameObject contentListParent;
         public GameObject directoryButton;
