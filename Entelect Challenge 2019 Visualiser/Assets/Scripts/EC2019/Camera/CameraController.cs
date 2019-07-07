@@ -2,34 +2,41 @@ using System.Collections.Generic;
 using EC2019.Entity;
 using UnityEngine;
 
-namespace EC2019.Camera {
-    public class CameraController : MonoBehaviour {
+namespace EC2019.Camera
+{
+    public class CameraController : MonoBehaviour
+    {
 
-        private GameObject[] worms;
+        public void UpdatePosition(int playerACurrentWormId, int playerBCurrentWormId)
+        {
+            GameObject[] worms = GameObject.FindGameObjectsWithTag("Worm");
 
-        void Update() {
-            
-            worms = GameObject.FindGameObjectsWithTag("Worm");
-            
-            if (worms != null && worms.Length > 0) {
-                SetPositionFromWormsCenter();
-            }
-        }
+            Vector3 wormA = Vector3.zero;
+            Vector3 wormB = Vector3.zero;
 
-        private void SetPositionFromWormsCenter() {
-            var totalX = 0f;
-            var totalY = 0f;
-            foreach(var worm in worms)
+            if (worms != null && worms.Length > 0)
             {
-                var position = worm.transform.position;
-                totalX += position.x;
-                totalY += position.y;
-            }
-            var centerX = totalX / worms.Length;
-            var centerY = totalY / worms.Length;
+                foreach (var worm in worms)
+                {
+                    if (worm != null)
+                    {
+                        var wc = worm.GetComponent<WormComponent>();
+                        if (wc.playerId == 1 && wc.id == playerACurrentWormId)
+                        {
+                            wormA = worm.transform.position;
+                        }
 
-            var o = gameObject;
-            o.transform.position = new Vector3(centerX, centerY, o.transform.position.z);
+                        if (wc.playerId == 2 && wc.id == playerBCurrentWormId)
+                        {
+                            wormB = worm.transform.position;
+                        }
+                    }
+                }
+            }
+
+            var midPoint = (wormA + wormB) / 2;
+            var z = gameObject.transform.position.z;
+            gameObject.transform.position = new Vector3(midPoint.x, midPoint.y, z);
         }
     }
 }

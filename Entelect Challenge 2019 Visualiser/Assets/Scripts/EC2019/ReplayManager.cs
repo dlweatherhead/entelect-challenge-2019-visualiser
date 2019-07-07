@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using EC2019.Camera;
 using EC2019.Entity;
 using UnityEngine;
 
@@ -16,8 +17,15 @@ namespace EC2019 {
         private List<Round> playerBrounds;
         private int currentRound = 1;
 
+        private CameraController camera;
+
         void OnEnable() {
             ReplayLoader.roundsReadyEvent += RoundsReady;
+        }
+
+        private void Awake()
+        {
+            camera = FindObjectOfType<CameraController>();
         }
 
         void OnDisable()
@@ -41,6 +49,11 @@ namespace EC2019 {
                     nextRoundUpdateWormsEvent(playerAround.Player);
                     nextRoundUpdateWormsEvent(playerBround.Player);
                 }
+                
+                var playerAroundCurrentWormId = playerAround.CurrentWormId;
+                var playerBroundCurrentWormId = playerBround.CurrentWormId;
+                
+                camera.UpdatePosition(playerAroundCurrentWormId, playerBroundCurrentWormId);
 
                 yield return new WaitForSeconds(timePerRound);
                 currentRound++;

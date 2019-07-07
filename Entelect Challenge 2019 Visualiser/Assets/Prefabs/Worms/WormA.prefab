@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 6475087105357444296}
   m_Layer: 0
   m_Name: WormGraphic
-  m_TagString: Worm
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
