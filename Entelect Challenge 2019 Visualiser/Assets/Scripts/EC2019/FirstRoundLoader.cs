@@ -3,7 +3,11 @@ using EC2019.Entity;
 using UnityEngine;
 
 namespace EC2019 {
-    public class FirstRoundLoader : MonoBehaviour {
+    public class FirstRoundLoader : MonoBehaviour
+    {
+
+        public ReplayRepo replayRepo;
+        
         public GameObject airTile;
         public GameObject dirtTile;
         public GameObject spaceTile;
@@ -12,16 +16,17 @@ namespace EC2019 {
         public GameObject playerBWorm;
 
         void OnEnable() {
-            ReplayLoader.roundsFinishedLoadingEvent += RoundsFinishedLoading;
+            ReplayLoader.roundsReadyEvent += RoundsReady;
         }
 
         void OnDisable()
         {
-            ReplayLoader.roundsFinishedLoadingEvent -= RoundsFinishedLoading;
+            ReplayLoader.roundsReadyEvent -= RoundsReady;
         }
 
-        void RoundsFinishedLoading(List<Round> loadedRounds) {
-            Debug.Log("Setting up first round");
+        void RoundsReady()
+        {
+            var loadedRounds = replayRepo.GetPlayerARounds();
 
             PopulateGameMapForFirstRound(loadedRounds);
         }

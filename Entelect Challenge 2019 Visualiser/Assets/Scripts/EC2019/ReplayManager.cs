@@ -9,22 +9,23 @@ namespace EC2019 {
 
         public static event NextRoundUpdateWorms nextRoundUpdateWormsEvent;
 
+        public ReplayRepo replayRepo;
         public float timePerRound = 1f;
+        
         private List<Round> rounds;
-
         private int currentRound = 1;
 
         void OnEnable() {
-            ReplayLoader.roundsFinishedLoadingEvent += RoundsFinishedLoading;
+            ReplayLoader.roundsReadyEvent += RoundsReady;
         }
 
         void OnDisable()
         {
-            ReplayLoader.roundsFinishedLoadingEvent -= RoundsFinishedLoading;
+            ReplayLoader.roundsReadyEvent -= RoundsReady;
         }
 
-        void RoundsFinishedLoading(List<Round> loadedRounds) {
-            rounds = loadedRounds;
+        void RoundsReady() {
+            rounds = replayRepo.GetPlayerARounds();
 
             Debug.Log("Starting Game Loop");
 

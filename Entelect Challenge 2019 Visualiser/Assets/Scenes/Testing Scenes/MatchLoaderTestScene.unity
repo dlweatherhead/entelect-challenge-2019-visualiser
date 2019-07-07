@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 1357594481}
   - component: {fileID: 1357594480}
   - component: {fileID: 1357594482}
+  - component: {fileID: 1357594483}
   m_Layer: 0
   m_Name: ReplayManager
   m_TagString: Untagged
@@ -427,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2901e5adfc4a99b36242c08fa9605e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replayRepo: {fileID: 1357594483}
   timePerRound: 1
 --- !u!4 &1357594481
 Transform:
@@ -454,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e840c5f140949c8a0ad581a437388a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replayRepo: {fileID: 1357594483}
   airTile: {fileID: 861209129974951276, guid: 0df8a42a343131940824872ee3c20695, type: 3}
   dirtTile: {fileID: 3375268169464659114, guid: ed0a42cc61d5acb49bf16cdbaea9d4fc,
     type: 3}
@@ -463,6 +466,18 @@ MonoBehaviour:
     type: 3}
   playerBWorm: {fileID: 4237762236544496440, guid: 74ca0746fa3d78d43a2257c6f3ec8956,
     type: 3}
+--- !u!114 &1357594483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357594479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe30ae1ca2864cbebaebc157356179b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1371080459
 GameObject:
   m_ObjectHideFlags: 0

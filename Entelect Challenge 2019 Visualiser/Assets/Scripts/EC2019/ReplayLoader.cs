@@ -9,8 +9,12 @@ using EC2019.Utility;
 namespace EC2019 {
     public class ReplayLoader : MonoBehaviour {
         
-        public delegate void RoundsFinishedLoading(List<Round> rounds);
+        public delegate void RoundsFinishedLoading(Dictionary<string, List<Round>> playerRounds);
         public static event RoundsFinishedLoading roundsFinishedLoadingEvent;
+
+        public delegate void RoundsReady();
+
+        public static event RoundsReady roundsReadyEvent;
 
         private void Start()
         {
@@ -23,7 +27,13 @@ namespace EC2019 {
                 select playerA + "/JsonMap.json" into jsonMap 
                 select new JsonFileParser<Round>(jsonMap).GetSerializedData()).ToList();
 
-            roundsFinishedLoadingEvent?.Invoke(rounds);
+            var loadedRounds = new Dictionary<string, List<Round>>
+            {
+                {"playerA", rounds}
+            };
+            roundsFinishedLoadingEvent?.Invoke(loadedRounds);
+            
+            roundsReadyEvent?.Invoke();
         }
 
         private void processDirectories(string absoluteDirectory) {
