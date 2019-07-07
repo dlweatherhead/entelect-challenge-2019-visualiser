@@ -7,12 +7,15 @@ using UnityEngine;
 using EC2019.Utility;
 
 namespace EC2019 {
-    public class ReplayLoader : MonoBehaviour, IDirectorySelectorAction {
+    public class ReplayLoader : MonoBehaviour {
         
         public delegate void RoundsFinishedLoading(List<Round> rounds);
         public static event RoundsFinishedLoading roundsFinishedLoadingEvent;
 
-        public void OnSelected(string absoluteDirectory) {
+        private void Start()
+        {
+            var absoluteDirectory = PlayerPrefs.GetString(Constants.PlayerPrefKeys.SelectedReplay);
+                
             var roundsList = Directory.GetDirectories(absoluteDirectory);
 
             var rounds = (from round in roundsList 

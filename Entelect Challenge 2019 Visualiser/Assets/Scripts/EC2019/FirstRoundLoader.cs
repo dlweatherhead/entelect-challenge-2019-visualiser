@@ -11,8 +11,13 @@ namespace EC2019 {
         public GameObject playerAWorm;
         public GameObject playerBWorm;
 
-        void Start() {
+        void OnEnable() {
             ReplayLoader.roundsFinishedLoadingEvent += RoundsFinishedLoading;
+        }
+
+        void OnDisable()
+        {
+            ReplayLoader.roundsFinishedLoadingEvent -= RoundsFinishedLoading;
         }
 
         void RoundsFinishedLoading(List<Round> loadedRounds) {

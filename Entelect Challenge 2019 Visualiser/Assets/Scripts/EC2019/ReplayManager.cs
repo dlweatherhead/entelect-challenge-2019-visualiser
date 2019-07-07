@@ -14,8 +14,13 @@ namespace EC2019 {
 
         private int currentRound = 1;
 
-        void Start() {
+        void OnEnable() {
             ReplayLoader.roundsFinishedLoadingEvent += RoundsFinishedLoading;
+        }
+
+        void OnDisable()
+        {
+            ReplayLoader.roundsFinishedLoadingEvent -= RoundsFinishedLoading;
         }
 
         void RoundsFinishedLoading(List<Round> loadedRounds) {
