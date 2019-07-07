@@ -20,7 +20,7 @@ namespace EC2019.Entity
         [JsonProperty("consecutiveDoNothingCount")]
         public int ConsecutiveDoNothingCount { get; set; }
         [JsonProperty("myPlayer")]
-        public Player PlayerA { get; set; }
+        public Player Player { get; set; }
         [JsonProperty("opponents")]
         public Player[] Opponents { get; set; }
         [JsonProperty("map")]

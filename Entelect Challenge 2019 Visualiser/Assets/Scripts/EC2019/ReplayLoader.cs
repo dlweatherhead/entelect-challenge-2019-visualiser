@@ -22,14 +22,20 @@ namespace EC2019 {
                 
             var roundsList = Directory.GetDirectories(absoluteDirectory);
 
-            var rounds = (from round in roundsList 
+            var roundsPlayerA = (from round in roundsList 
                 select Directory.GetDirectories(round)[0] into playerA 
                 select playerA + "/JsonMap.json" into jsonMap 
+                select new JsonFileParser<Round>(jsonMap).GetSerializedData()).ToList();
+            
+            var roundsPlayerB = (from round in roundsList 
+                select Directory.GetDirectories(round)[1] into playerB
+                select playerB + "/JsonMap.json" into jsonMap 
                 select new JsonFileParser<Round>(jsonMap).GetSerializedData()).ToList();
 
             var loadedRounds = new Dictionary<string, List<Round>>
             {
-                {"playerA", rounds}
+                {"playerA", roundsPlayerA},
+                {"playerB", roundsPlayerB}
             };
             roundsFinishedLoadingEvent?.Invoke(loadedRounds);
             

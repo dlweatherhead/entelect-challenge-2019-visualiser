@@ -28,20 +28,30 @@ namespace EC2019 {
         {
             var loadedRounds = replayRepo.GetPlayerARounds();
 
-            PopulateGameMapForFirstRound(loadedRounds);
+            PopulateGameMapForFirstRound(loadedRounds[0].Map);
+            PopulatePlayerAWorms(loadedRounds[0].Player.Worms);
+            PopulatePlayerBWorms(loadedRounds[1].Player.Worms);
         }
 
-        private void PopulateGameMapForFirstRound(IReadOnlyList<Round> rounds) {
-            var round = rounds[0];
-
-            foreach (var row in round.Map) {
+        private void PopulateGameMapForFirstRound(IEnumerable<List<Tile>> map) {
+            foreach (var row in map) {
                 foreach (var tile in row) {
                     createTile(tile);
                 }
             }
+        }
 
-            foreach (var worm in round.PlayerA.Worms) {
+        private void PopulatePlayerAWorms(IEnumerable<Worm> playerAWorms)
+        {
+            foreach (var worm in playerAWorms) {
                 createWormPlayerA(worm);
+            }
+        }
+
+        private void PopulatePlayerBWorms(IEnumerable<Worm> playerBWorms)
+        {
+            foreach (var worm in playerBWorms) {
+                createWormPlayerB(worm);
             }
         }
 
@@ -56,6 +66,11 @@ namespace EC2019 {
 
         private void createWormPlayerA(Worm worm) {
             var wc = InstantiateObject(playerAWorm, worm.Position.x, worm.Position.y);
+            wc.GetComponent<WormComponent>().id = worm.Id;
+        }
+        
+        private void createWormPlayerB(Worm worm) {
+            var wc = InstantiateObject(playerBWorm, worm.Position.x, worm.Position.y);
             wc.GetComponent<WormComponent>().id = worm.Id;
         }
 

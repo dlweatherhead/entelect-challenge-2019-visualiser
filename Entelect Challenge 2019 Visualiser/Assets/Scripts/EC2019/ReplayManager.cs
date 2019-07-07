@@ -5,14 +5,15 @@ using UnityEngine;
 
 namespace EC2019 {
     public class ReplayManager : MonoBehaviour {
-        public delegate void NextRoundUpdateWorms(List<Worm> worm);
+        public delegate void NextRoundUpdateWorms(Player player);
 
         public static event NextRoundUpdateWorms nextRoundUpdateWormsEvent;
 
         public ReplayRepo replayRepo;
         public float timePerRound = 1f;
         
-        private List<Round> rounds;
+        private List<Round> playerArounds;
+        private List<Round> playerBrounds;
         private int currentRound = 1;
 
         void OnEnable() {
@@ -24,28 +25,21 @@ namespace EC2019 {
             ReplayLoader.roundsReadyEvent -= RoundsReady;
         }
 
-        void RoundsReady() {
-            rounds = replayRepo.GetPlayerARounds();
-
-            Debug.Log("Starting Game Loop");
-
+        private void RoundsReady() {
+            playerArounds = replayRepo.GetPlayerARounds();
+            playerBrounds = replayRepo.GetPlayerBRounds();
 
             StartCoroutine(GameLoop());
         }
 
-        IEnumerator GameLoop() {
+        private IEnumerator GameLoop() {
             while (true) {
-                Debug.Log("Round: " + currentRound);
-                var round = rounds[currentRound];
-                
-                Debug.Log("Current Worm: " + round.CurrentWormId);
+                var playerAround = playerArounds[currentRound];
+                var playerBround = playerBrounds[currentRound];
                 
                 if (nextRoundUpdateWormsEvent != null) {
-                    nextRoundUpdateWormsEvent(round.PlayerA.Worms);
-                    var opponents = round.Opponents;
-                    foreach (var opponent in opponents) {
-                        nextRoundUpdateWormsEvent(opponent.Worms);
-                    }
+                    nextRoundUpdateWormsEvent(playerAround.Player);
+                    nextRoundUpdateWormsEvent(playerBround.Player);
                 }
 
                 yield return new WaitForSeconds(timePerRound);

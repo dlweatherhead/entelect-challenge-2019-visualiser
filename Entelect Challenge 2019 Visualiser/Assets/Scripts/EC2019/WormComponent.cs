@@ -3,17 +3,21 @@ using EC2019.Entity;
 using UnityEngine;
 
 namespace EC2019 {
-    public class WormComponent : MonoBehaviour {
-
+    public class WormComponent : MonoBehaviour
+    {
+        public int playerId;
         public int id;
         
         void Start() {
             ReplayManager.nextRoundUpdateWormsEvent += UpdateWorm;
         }
 
-        void UpdateWorm(List<Worm> worms) {
+        void UpdateWorm(Player player)
+        {
+            var worms = player.Worms;
+            
             foreach (var worm in worms) {
-                if (worm.Id == id) {
+                if (player.Id == playerId && worm.Id == id) {
                     UpdateWormPosition(worm.Position);
                 }
             }

@@ -26,4 +26,9 @@ public class ReplayRepo : MonoBehaviour
     {
         return playerRounds["playerA"];
     }
+
+    public List<Round> GetPlayerBRounds()
+    {
+        return playerRounds["playerB"];
+    }
 }
