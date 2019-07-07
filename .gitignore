@@ -1,2 +1,3 @@
 # Ignore Match Logs for testing
 /matches/
+.DS_Store
