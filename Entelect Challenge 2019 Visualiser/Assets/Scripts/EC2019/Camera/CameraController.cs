@@ -1,11 +1,24 @@
-using System.Collections.Generic;
-using EC2019.Entity;
 using UnityEngine;
 
 namespace EC2019.Camera
 {
-    public class CameraController : MonoBehaviour
-    {
+    public class CameraController : MonoBehaviour {
+        
+        public Vector3 endMarker;
+        public float speed = 0.5F;
+        
+        private float startTime;
+
+        void Start()
+        {
+            startTime = Time.time;
+        }
+        
+        public void Update() {
+            var timeIncrement = (Time.time - startTime) * speed;
+            var startMarker = transform.position;
+            transform.position = Vector3.Lerp(startMarker, endMarker, timeIncrement);
+        }
 
         public void UpdatePosition(int playerACurrentWormId, int playerBCurrentWormId)
         {
@@ -32,11 +45,12 @@ namespace EC2019.Camera
                         }
                     }
                 }
+                
+                var midPoint = (wormA + wormB) / 2;
+                var y = gameObject.transform.position.y;
+            
+                endMarker = new Vector3(midPoint.x, y, midPoint.z);
             }
-
-            var midPoint = (wormA + wormB) / 2;
-            var y = gameObject.transform.position.y;
-            gameObject.transform.position = new Vector3(midPoint.x, y, midPoint.z);
         }
     }
 }
