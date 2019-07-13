@@ -338,6 +338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e110b04b6a4241adaa8d11aea975c557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endMarker: {x: 16, y: 0, z: 16}
+  speed: 0.05
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e110b04b6a4241adaa8d11aea975c557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endMarker: {x: 0, y: 0, z: 0}
+  speed: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
