@@ -24,9 +24,7 @@ namespace EC2019 {
         }
 
         private void UpdateWormPosition(Vector2 position) {
-            gameObject.transform.position = position;
+            gameObject.transform.position = new Vector3(position.x, 0f, position.y);
         }
-
-
     }
 }

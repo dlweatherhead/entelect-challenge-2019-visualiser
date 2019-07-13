@@ -35,8 +35,8 @@ namespace EC2019.Camera
             }
 
             var midPoint = (wormA + wormB) / 2;
-            var z = gameObject.transform.position.z;
-            gameObject.transform.position = new Vector3(midPoint.x, midPoint.y, z);
+            var y = gameObject.transform.position.y;
+            gameObject.transform.position = new Vector3(midPoint.x, y, midPoint.z);
         }
     }
 }

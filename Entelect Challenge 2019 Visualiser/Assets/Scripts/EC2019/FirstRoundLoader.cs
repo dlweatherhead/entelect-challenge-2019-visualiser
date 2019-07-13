@@ -75,7 +75,7 @@ namespace EC2019 {
         }
 
         private static GameObject InstantiateObject(GameObject o, float x, float y) {
-            return Instantiate(o, new Vector3(x, y, 0f), Quaternion.identity);
+            return Instantiate(o, new Vector3(x, 0f, y), Quaternion.identity);
         }
     }
 }
