@@ -47,10 +47,12 @@ namespace EC2019 {
                 var playerAroundCurrentWormId = playerAround.CurrentWormId;
                 var playerBroundCurrentWormId = playerBround.CurrentWormId;
 
-//                camera.UpdatePosition(playerAroundCurrentWormId, playerBroundCurrentWormId);
-                camera.UpdateSize();
+                if (currentRound >= 2) {
+                    // camera.UpdatePosition(playerAroundCurrentWormId, playerBroundCurrentWormId);
+                    camera.UpdateSize();
 
-                yield return new WaitForSeconds(cameraMotionDelay);
+                    yield return new WaitForSeconds(cameraMotionDelay);
+                }
 
                 if (nextRoundUpdateWormsEvent != null) {
                     nextRoundUpdateWormsEvent(playerAround.Player);
