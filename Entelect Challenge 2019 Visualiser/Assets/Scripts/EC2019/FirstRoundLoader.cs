@@ -3,14 +3,10 @@ using EC2019.Entity;
 using UnityEngine;
 
 namespace EC2019 {
-    public class FirstRoundLoader : MonoBehaviour
-    {
-
+    public class FirstRoundLoader : MonoBehaviour {
         public ReplayRepo replayRepo;
-        
-        public GameObject airTile;
-        public GameObject dirtTile;
-        public GameObject spaceTile;
+
+        public GameObject genericTile;
 
         public GameObject playerAWorm;
         public GameObject playerBWorm;
@@ -19,13 +15,11 @@ namespace EC2019 {
             ReplayLoader.roundsReadyEvent += RoundsReady;
         }
 
-        void OnDisable()
-        {
+        void OnDisable() {
             ReplayLoader.roundsReadyEvent -= RoundsReady;
         }
 
-        void RoundsReady()
-        {
+        void RoundsReady() {
             var loadedRounds = replayRepo.GetPlayerARounds();
 
             PopulateGameMapForFirstRound(loadedRounds[0].Map);
@@ -41,34 +35,28 @@ namespace EC2019 {
             }
         }
 
-        private void PopulatePlayerAWorms(IEnumerable<Worm> playerAWorms)
-        {
+        private void PopulatePlayerAWorms(IEnumerable<Worm> playerAWorms) {
             foreach (var worm in playerAWorms) {
                 createWormPlayerA(worm);
             }
         }
 
-        private void PopulatePlayerBWorms(IEnumerable<Worm> playerBWorms)
-        {
+        private void PopulatePlayerBWorms(IEnumerable<Worm> playerBWorms) {
             foreach (var worm in playerBWorms) {
                 createWormPlayerB(worm);
             }
         }
 
         private void createTile(Tile tile) {
-            if (tile.TileType == TileType.AIR)
-                InstantiateObject(airTile, tile.X, tile.Y);
-            else if (tile.TileType == TileType.DIRT)
-                InstantiateObject(dirtTile, tile.X, tile.Y);
-            else if (tile.TileType == TileType.SPACE)
-                InstantiateObject(spaceTile, tile.X, tile.Y);
+            var o = InstantiateObject(genericTile, tile.X, tile.Y);
+            o.GetComponent<TileComponent>().UpdateTile(tile);
         }
 
         private void createWormPlayerA(Worm worm) {
             var wc = InstantiateObject(playerAWorm, worm.Position.x, worm.Position.y);
             wc.GetComponent<WormComponent>().id = worm.Id;
         }
-        
+
         private void createWormPlayerB(Worm worm) {
             var wc = InstantiateObject(playerBWorm, worm.Position.x, worm.Position.y);
             wc.GetComponent<WormComponent>().id = worm.Id;

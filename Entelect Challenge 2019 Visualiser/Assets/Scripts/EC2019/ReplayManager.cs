@@ -18,13 +18,11 @@ namespace EC2019 {
         public float timePerRound = 1f;
         public float cameraMotionDelay = 0.5f;
 
-        public GameObject airTile;
-        public GameObject dirtTile;
-        public GameObject spaceTile;
-
         private List<Round> playerArounds;
         private List<Round> playerBrounds;
         private int currentRound = 1;
+
+        private TileComponent[] tilesObjects;
 
         private SingleScreenCameraController singleCamera;
         private DualScreenCameraController dualCamera;
@@ -73,40 +71,28 @@ namespace EC2019 {
                     nextRoundUpdateWormsEvent(playerBround.Player);
                 }
 
-                DestroyTiles();
-                PopulateNextRoundTiles(playerAround.Map);
+                if (tilesObjects == null || tilesObjects.Length == 0) {
+                    tilesObjects = FindObjectsOfType<TileComponent>();
+                }
+                else {
+                    PopulateNextRoundTiles(playerAround.Map);
+                }
 
                 yield return new WaitForSeconds(timePerRound);
                 currentRound++;
-            }
-        }
 
-        private void DestroyTiles() {
-            var tiles = GameObject.FindGameObjectsWithTag("Tile");
-            foreach (var tile in tiles) {
-                Destroy(tile);
+                // Break when round ends
             }
         }
 
         private void PopulateNextRoundTiles(IEnumerable<List<Tile>> map) {
+            var i = 0;
             foreach (var row in map) {
                 foreach (var tile in row) {
-                    createTile(tile);
+                    tilesObjects[i].UpdateTile(tile);
+                    i++;
                 }
             }
-        }
-
-        private void createTile(Tile tile) {
-            if (tile.TileType == TileType.AIR)
-                InstantiateObject(airTile, tile.X, tile.Y);
-            else if (tile.TileType == TileType.DIRT)
-                InstantiateObject(dirtTile, tile.X, tile.Y);
-            else if (tile.TileType == TileType.SPACE)
-                InstantiateObject(spaceTile, tile.X, tile.Y);
-        }
-
-        private static GameObject InstantiateObject(GameObject o, float x, float y) {
-            return Instantiate(o, new Vector3(x, 0f, y), Quaternion.identity);
         }
     }
 }

@@ -639,11 +639,6 @@ MonoBehaviour:
   replayRepo: {fileID: 1357594483}
   timePerRound: 0.5
   cameraMotionDelay: 0.1
-  airTile: {fileID: 861209129974951276, guid: 0df8a42a343131940824872ee3c20695, type: 3}
-  dirtTile: {fileID: 3375268169464659114, guid: ed0a42cc61d5acb49bf16cdbaea9d4fc,
-    type: 3}
-  spaceTile: {fileID: 9186391639147234100, guid: 58f4ef81aace59e418d9c99b52e7803e,
-    type: 3}
 --- !u!4 &1357594481
 Transform:
   m_ObjectHideFlags: 0
@@ -671,10 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replayRepo: {fileID: 1357594483}
-  airTile: {fileID: 861209129974951276, guid: 0df8a42a343131940824872ee3c20695, type: 3}
-  dirtTile: {fileID: 3375268169464659114, guid: ed0a42cc61d5acb49bf16cdbaea9d4fc,
-    type: 3}
-  spaceTile: {fileID: 9186391639147234100, guid: 58f4ef81aace59e418d9c99b52e7803e,
+  genericTile: {fileID: 3602772592548260226, guid: 3a45ce9bf3f655643acbc26cbd7d4ab6,
     type: 3}
   playerAWorm: {fileID: 7481542133969421867, guid: 2a204396a3a71eb45976ec4ff69c769d,
     type: 3}
