@@ -609,6 +609,7 @@ GameObject:
   - component: {fileID: 1357594480}
   - component: {fileID: 1357594482}
   - component: {fileID: 1357594483}
+  - component: {fileID: 1357594484}
   m_Layer: 0
   m_Name: ReplayManager
   m_TagString: Untagged
@@ -679,6 +680,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe30ae1ca2864cbebaebc157356179b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1357594484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357594479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce421d5190081b44a251529635a1f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleScreenCanvas: {fileID: 1371080459}
+  dualScreenCanvas: {fileID: 1955086135}
+--- !u!1 &1371080459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3469536404636210994, guid: 28012f65e50132a4eb27e10e3befcbce,
+    type: 3}
+  m_PrefabInstance: {fileID: 3469536403805278265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1468181463
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +774,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1955086135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3469536404636210994, guid: 35abe6b351978cf43947ce347652a2a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 812922901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3469536403805278265
 PrefabInstance:
   m_ObjectHideFlags: 0
