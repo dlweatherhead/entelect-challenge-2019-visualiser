@@ -18,14 +18,16 @@ namespace EC2019 {
         private List<Round> playerBrounds;
         private int currentRound = 1;
 
-        private CameraController camera;
+        private SingleScreenCameraController singleCamera;
+        private DualScreenCameraController dualCamera;
 
         void OnEnable() {
             ReplayLoader.roundsReadyEvent += RoundsReady;
         }
 
         private void Awake() {
-            camera = FindObjectOfType<CameraController>();
+            singleCamera = FindObjectOfType<SingleScreenCameraController>();
+            dualCamera = FindObjectOfType<DualScreenCameraController>();
         }
 
         void OnDisable() {
@@ -48,8 +50,11 @@ namespace EC2019 {
                 var playerBroundCurrentWormId = playerBround.CurrentWormId;
 
                 if (currentRound >= 2) {
-                    // camera.UpdatePosition(playerAroundCurrentWormId, playerBroundCurrentWormId);
-                    camera.UpdateSize();
+                    if (singleCamera.isActiveAndEnabled) {
+                        singleCamera.UpdateSize();
+                    } else if (dualCamera.isActiveAndEnabled) {
+                        dualCamera.UpdatePositions(playerAroundCurrentWormId, playerBroundCurrentWormId);                        
+                    }
 
                     yield return new WaitForSeconds(cameraMotionDelay);
                 }
