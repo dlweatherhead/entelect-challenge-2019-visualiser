@@ -12,7 +12,8 @@ namespace EC2019 {
 
         public ReplayRepo replayRepo;
         public float timePerRound = 1f;
-        
+        public float cameraMotionDelay = 0.5f;
+
         private List<Round> playerArounds;
         private List<Round> playerBrounds;
         private int currentRound = 1;
@@ -23,13 +24,11 @@ namespace EC2019 {
             ReplayLoader.roundsReadyEvent += RoundsReady;
         }
 
-        private void Awake()
-        {
+        private void Awake() {
             camera = FindObjectOfType<CameraController>();
         }
 
-        void OnDisable()
-        {
+        void OnDisable() {
             ReplayLoader.roundsReadyEvent -= RoundsReady;
         }
 
@@ -44,16 +43,19 @@ namespace EC2019 {
             while (true) {
                 var playerAround = playerArounds[currentRound];
                 var playerBround = playerBrounds[currentRound];
-                
+
+                var playerAroundCurrentWormId = playerAround.CurrentWormId;
+                var playerBroundCurrentWormId = playerBround.CurrentWormId;
+
+//                camera.UpdatePosition(playerAroundCurrentWormId, playerBroundCurrentWormId);
+                camera.UpdateSize();
+
+                yield return new WaitForSeconds(cameraMotionDelay);
+
                 if (nextRoundUpdateWormsEvent != null) {
                     nextRoundUpdateWormsEvent(playerAround.Player);
                     nextRoundUpdateWormsEvent(playerBround.Player);
                 }
-                
-                var playerAroundCurrentWormId = playerAround.CurrentWormId;
-                var playerBroundCurrentWormId = playerBround.CurrentWormId;
-                
-                camera.UpdatePosition(playerAroundCurrentWormId, playerBroundCurrentWormId);
 
                 yield return new WaitForSeconds(timePerRound);
                 currentRound++;
