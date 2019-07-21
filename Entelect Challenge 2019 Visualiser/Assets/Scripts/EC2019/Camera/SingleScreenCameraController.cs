@@ -10,10 +10,14 @@ namespace EC2019.Camera {
         private float sizeStartTime;
         private float sizeEndMarker;
 
+        private Vector3 moveEndMarker;
+
         public void Update() {
             var timeIncrement = (Time.time - startTime) * speed;
             var sizeStartMarker = myCamera.orthographicSize;
+            var moveStartMarker = transform.position;
             myCamera.orthographicSize = Mathf.Lerp(sizeStartMarker, sizeEndMarker, timeIncrement);
+            transform.position = Vector3.Lerp(moveStartMarker, moveEndMarker, timeIncrement);
         }
 
         public void UpdateSize() {
@@ -22,17 +26,12 @@ namespace EC2019.Camera {
 
             if (worms == null || worms.Length <= 0) return;
 
-            // Calc midpoint
             foreach (var worm in worms) {
                 midPoint += worm.transform.position;
             }
 
             midPoint /= worms.Length;
 
-            // Get max x left of midpoint
-            // Get max x right of midpoint
-            // Get max z above midpoint
-            // Get max z below midpoint
             var x_left = midPoint.x;
             var x_right = midPoint.x;
             var z_low = midPoint.z;
@@ -56,30 +55,14 @@ namespace EC2019.Camera {
                 }
             }
 
-            // Get delta x
-            // Get delta z
             var delta_x = x_right - x_left;
             var delta_z = z_high - z_low;
-
-            // Determine max delta
             var maxDelta = delta_x > delta_z ? delta_x : delta_z;
-
             var newCameraSize = maxDelta < 1f ? myCamera.orthographicSize : maxDelta * 0.5f;
 
-            Debug.Log("Updating Size: " +
-                      "midPoint" + midPoint +
-                      ", xL=" + x_left +
-                      ", xR=" + x_right +
-                      ", zH=" + z_high +
-                      ", zL=" + z_low +
-                      ", dX=" + delta_x +
-                      ", dZ=" + delta_z +
-                      ", mD=" + maxDelta +
-                      ", size=" + newCameraSize);
-
-            // get size equation by multiplying with 0.5 [sin(30)] from isometric angle
             startTime = Time.time;
             sizeEndMarker = newCameraSize;
+            moveEndMarker = midPoint;
         }
     }
 }

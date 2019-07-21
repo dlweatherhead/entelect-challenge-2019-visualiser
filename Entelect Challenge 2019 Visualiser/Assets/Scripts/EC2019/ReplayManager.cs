@@ -56,12 +56,8 @@ namespace EC2019 {
                 var playerBroundCurrentWormId = playerBround.CurrentWormId;
 
                 if (currentRound >= 2) {
-                    if (singleCamera.isActiveAndEnabled) {
-                        singleCamera.UpdateSize();
-                    }
-                    else if (dualCamera.isActiveAndEnabled) {
-                        dualCamera.UpdatePositions(playerAroundCurrentWormId, playerBroundCurrentWormId);
-                    }
+                    singleCamera.UpdateSize();
+                    dualCamera.UpdatePositions(playerAroundCurrentWormId, playerBroundCurrentWormId);
 
                     yield return new WaitForSeconds(cameraMotionDelay);
                 }
