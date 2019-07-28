@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 
@@ -11,6 +12,11 @@ namespace EC2019.Camera {
         private float sizeEndMarker;
 
         private Vector3 moveEndMarker;
+
+        public void Start() {
+            moveEndMarker = transform.position;
+            sizeEndMarker = myCamera.orthographicSize;
+        }
 
         public void Update() {
             var timeIncrement = (Time.time - startTime) * speed;
