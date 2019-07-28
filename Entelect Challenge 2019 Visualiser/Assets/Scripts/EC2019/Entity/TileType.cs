@@ -5,7 +5,7 @@ namespace EC2019 {
     public static class TileType {
         public const string AIR = "AIR";
         public const string DIRT = "DIRT";
-        public const string SPACE = "SPACE";
+        public const string SPACE = "DEEP_SPACE";
 
 //    [JsonProperty("DEEP_SPACE")]
 //    [EnumMember(Value = "DEEP_SPACE")]
