@@ -13,6 +13,10 @@ namespace EC2019 {
         public delegate void NextRoundUpdateTiles();
 
         public static event NextRoundUpdateTiles nextRoundUpdateTilesEvent;
+        
+        public delegate void NextRoundUpdateUI(Player playerA, Player playerB);
+
+        public static event NextRoundUpdateUI nextRoundUpdateUIEvent;
 
         public ReplayRepo replayRepo;
         public float timePerRound = 1f;
@@ -55,8 +59,6 @@ namespace EC2019 {
                 var playerAroundCurrentWormId = playerAround.CurrentWormId;
                 var playerBroundCurrentWormId = playerBround.CurrentWormId;
 
-                
-
                 if (nextRoundUpdateWormsEvent != null) {
                     nextRoundUpdateWormsEvent(playerAround.Player);
                     nextRoundUpdateWormsEvent(playerBround.Player);
@@ -70,6 +72,10 @@ namespace EC2019 {
                 }
 
                 yield return new WaitForSeconds(timePerRound);
+
+                if (nextRoundUpdateUIEvent != null) {
+                    nextRoundUpdateUIEvent(playerAround.Player, playerBround.Player);
+                }
                 
                 if (currentRound >= 2) {
                     singleCamera.UpdateSize();
