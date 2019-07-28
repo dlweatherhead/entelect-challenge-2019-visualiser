@@ -1,19 +1,10 @@
 TODO List
 
-Import official game log
-
-Keep track of all worms per player
-
 Import animation data once available
-
-Move camera to active worm
-
-Create minimap with secondary camera
 
 Create UI tracking worm health etc.
 
-Investigate 2/2.5/3D
-    Keep game in 3D space, but 2D mapping, making later isometric gameplay integration possible
+Create UI tracking game data, points, etc.
 
 Create isometric camera
 
@@ -26,4 +17,5 @@ Add Command Prompt
 Create intro screen
 
 Create Loading screen
-    
+
+Create sample videos to upload to the group once UI is in place
