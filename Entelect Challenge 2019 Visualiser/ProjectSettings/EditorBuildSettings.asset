@@ -4,11 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MatchSelectionScene.unity
-    guid: 22f12624a30a64bd5864647e5e4a0d19
-  - enabled: 1
-    path: Assets/Scenes/Testing Scenes/MatchLoaderTestScene.unity
-    guid: ae9ba00ee92e14329aa57df08ddbb787
-  m_configObjects: {}
+  m_Scenes: []
