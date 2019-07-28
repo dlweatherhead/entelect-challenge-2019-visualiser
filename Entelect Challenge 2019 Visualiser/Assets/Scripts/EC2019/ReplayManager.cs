@@ -55,12 +55,7 @@ namespace EC2019 {
                 var playerAroundCurrentWormId = playerAround.CurrentWormId;
                 var playerBroundCurrentWormId = playerBround.CurrentWormId;
 
-                if (currentRound >= 2) {
-                    singleCamera.UpdateSize();
-                    dualCamera.UpdatePositions(playerAroundCurrentWormId, playerBroundCurrentWormId);
-
-                    yield return new WaitForSeconds(cameraMotionDelay);
-                }
+                
 
                 if (nextRoundUpdateWormsEvent != null) {
                     nextRoundUpdateWormsEvent(playerAround.Player);
@@ -75,6 +70,14 @@ namespace EC2019 {
                 }
 
                 yield return new WaitForSeconds(timePerRound);
+                
+                if (currentRound >= 2) {
+                    singleCamera.UpdateSize();
+                    dualCamera.UpdatePositions(playerAroundCurrentWormId, playerBroundCurrentWormId);
+
+                    yield return new WaitForSeconds(cameraMotionDelay);
+                }
+                
                 currentRound++;
 
                 // Break when round ends
