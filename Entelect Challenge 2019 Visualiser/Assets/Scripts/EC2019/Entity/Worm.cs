@@ -19,5 +19,7 @@ namespace EC2019.Entity
         public int MovementRange { get; set; }
         [JsonProperty("profession")]
         public string Profession { get; set; }
+        [JsonProperty("bananaBombs")]
+        public BananaBombs BananaBombs { get; set; }
     }
 }
