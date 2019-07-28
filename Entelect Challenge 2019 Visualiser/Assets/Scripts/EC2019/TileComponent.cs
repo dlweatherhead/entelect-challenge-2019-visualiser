@@ -9,11 +9,13 @@ namespace EC2019 {
         public GameObject airTile;
         public GameObject dirtTile;
         public GameObject spaceTile;
+        public GameObject lavaTile;
 
         public void UpdateTile(Tile tile) {
             airTile.SetActive(false);
             dirtTile.SetActive(false);
             spaceTile.SetActive(false);
+            lavaTile.SetActive(false);
 
             var y = gameObject.transform.position.y;
             transform.position = new Vector3(tile.X, y, tile.Y);
@@ -24,6 +26,9 @@ namespace EC2019 {
                 dirtTile.SetActive(true);
             else if (tile.TileType == TileType.SPACE)
                 spaceTile.SetActive(true);
+            else if(tile.TileType == TileType.LAVA) {
+                lavaTile.SetActive(true);
+            }
         }
     }
 }
