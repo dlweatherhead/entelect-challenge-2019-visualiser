@@ -25,6 +25,6 @@ namespace EC2019.Entity {
         public List<List<Tile>> Map { get; set; }
         
         [JsonProperty("visualizerEvents")] 
-        public VisualiserEvent VisualizerEvents { get; set; }
+        public List<VisualiserEvent> VisualizerEvents { get; set; }
     }
 }

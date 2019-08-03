@@ -17,6 +17,6 @@ namespace EC2019.Entity {
         public Vector2 PositionEnd { get; set; }
         
         [JsonProperty("wormCommanded")] 
-        public List<WormCommanded> WormCommanded { get; set; }
+        public WormCommanded WormCommanded { get; set; }
     }
 }

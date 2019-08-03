@@ -20,11 +20,11 @@ namespace EC2019 {
         }
 
         void RoundsReady() {
-            var loadedRounds = replayRepo.GetPlayerARounds();
+            var firstRound = replayRepo.GetRound(0);
 
-            PopulateGameMapForFirstRound(loadedRounds[0].Map);
-            PopulatePlayerAWorms(loadedRounds[0].Player.Worms);
-            PopulatePlayerBWorms(loadedRounds[1].Player.Worms);
+            PopulateGameMapForFirstRound(firstRound.Map);
+            PopulatePlayerAWorms(firstRound.Opponents[0].Worms);
+            PopulatePlayerBWorms(firstRound.Opponents[1].Worms);
         }
 
         private void PopulateGameMapForFirstRound(IEnumerable<List<Tile>> map) {

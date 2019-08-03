@@ -1,34 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using EC2019;
 using EC2019.Entity;
 using UnityEngine;
 
-public class ReplayRepo : MonoBehaviour
-{
-    Dictionary<string, List<Round>> playerRounds;
+public class ReplayRepo : MonoBehaviour {
+    private List<GlobalState> rounds;
 
-    void OnEnable() {
+    private void OnEnable() {
         ReplayLoader.roundsFinishedLoadingEvent += RoundsFinishedLoading;
     }
 
-    void OnDisable()
-    {
+    private void OnDisable() {
         ReplayLoader.roundsFinishedLoadingEvent -= RoundsFinishedLoading;
     }
-    
-    void RoundsFinishedLoading(Dictionary<string, List<Round>> loadedRounds)
-    {
-        playerRounds = loadedRounds;
+
+    private void RoundsFinishedLoading(List<GlobalState> loadedRounds) {
+        rounds = loadedRounds;
     }
 
-    public List<Round> GetPlayerARounds()
-    {
-        return playerRounds["playerA"];
-    }
-
-    public List<Round> GetPlayerBRounds()
-    {
-        return playerRounds["playerB"];
+    public GlobalState GetRound(int round) {
+        return rounds[round];
     }
 }

@@ -8,6 +8,7 @@ using UnityEngine;
 namespace EC2019.Utility {
     public static class Constants {
         public static class Tags {
+            public const string Worm = "Worm";
         }
 
         public static class ParentNames {
@@ -23,6 +24,7 @@ namespace EC2019.Utility {
         }
 
         public static class Paths {
+            public const string GlobalStateFilename = "/GlobalState.json";
             public const string ExampleReplays = "/Resources/matches";
             public const string DeployedReplays = "/matches";
             public const string MapName = "/JsonMap.json";

@@ -10,10 +10,6 @@ namespace EC2019 {
 
         public static event NextRoundUpdateWorms nextRoundUpdateWormsEvent;
 
-        public delegate void NextRoundUpdateTiles();
-
-        public static event NextRoundUpdateTiles nextRoundUpdateTilesEvent;
-        
         public delegate void NextRoundUpdateUI(Player playerA, Player playerB);
 
         public static event NextRoundUpdateUI nextRoundUpdateUIEvent;
@@ -21,9 +17,7 @@ namespace EC2019 {
         public ReplayRepo replayRepo;
         public float timePerRound = 1f;
         public float cameraMotionDelay = 0.5f;
-
-        private List<Round> playerArounds;
-        private List<Round> playerBrounds;
+        
         private int currentRound = 1;
 
         private TileComponent[] tilesObjects;
@@ -45,41 +39,37 @@ namespace EC2019 {
         }
 
         private void RoundsReady() {
-            playerArounds = replayRepo.GetPlayerARounds();
-            playerBrounds = replayRepo.GetPlayerBRounds();
-
             StartCoroutine(GameLoop());
         }
 
         private IEnumerator GameLoop() {
             while (true) {
-                var playerAround = playerArounds[currentRound];
-                var playerBround = playerBrounds[currentRound];
-
-                var playerAroundCurrentWormId = playerAround.CurrentWormId;
-                var playerBroundCurrentWormId = playerBround.CurrentWormId;
+                var round = replayRepo.GetRound(currentRound);
+                
+                var playerA = round.Opponents[0];
+                var playerB = round.Opponents[1];
 
                 if (nextRoundUpdateWormsEvent != null) {
-                    nextRoundUpdateWormsEvent(playerAround.Player);
-                    nextRoundUpdateWormsEvent(playerBround.Player);
+                    nextRoundUpdateWormsEvent(playerA);
+                    nextRoundUpdateWormsEvent(playerB);
                 }
 
                 if (tilesObjects == null || tilesObjects.Length == 0) {
                     tilesObjects = FindObjectsOfType<TileComponent>();
                 }
                 else {
-                    PopulateNextRoundTiles(playerAround.Map);
+                    PopulateNextRoundTiles(round.Map);
                 }
 
                 yield return new WaitForSeconds(timePerRound);
 
                 if (nextRoundUpdateUIEvent != null) {
-                    nextRoundUpdateUIEvent(playerAround.Player, playerBround.Player);
+                    nextRoundUpdateUIEvent(playerA, playerB);
                 }
                 
                 if (currentRound >= 2) {
                     singleCamera.UpdateSize();
-                    dualCamera.UpdatePositions(playerAroundCurrentWormId, playerBroundCurrentWormId);
+                    dualCamera.UpdatePositions(playerA.Id, playerB.Id);
 
                     yield return new WaitForSeconds(cameraMotionDelay);
                 }
