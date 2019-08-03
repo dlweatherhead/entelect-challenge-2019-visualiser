@@ -7,18 +7,5 @@ namespace EC2019 {
         public const string DIRT = "DIRT";
         public const string SPACE = "DEEP_SPACE";
         public const string LAVA = "LAVA";
-
-//    [JsonProperty("DEEP_SPACE")]
-//    [EnumMember(Value = "DEEP_SPACE")]
-//    DeepSpace,
-//    
-//    [JsonProperty("DIRT")]
-//    [EnumMember(Value = "DIRT")]
-//    Dirt,
-//    
-//    [JsonProperty("AIR")]
-//    [EnumMember(Value = "AIR")]
-//    Air
-
     }
 }

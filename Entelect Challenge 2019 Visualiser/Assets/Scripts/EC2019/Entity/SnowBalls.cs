@@ -1,9 +1,9 @@
 using Newtonsoft.Json;
 
 namespace EC2019.Entity {
-    public class BananaBombs {
-        [JsonProperty("damage")]
-        public int Damage { get; set; }
+    public class SnowBalls {
+        [JsonProperty("freezeDuration")]
+        public int FreezeDuration { get; set; }
         
         [JsonProperty("range")]
         public int Range { get; set; }
@@ -11,7 +11,7 @@ namespace EC2019.Entity {
         [JsonProperty("count")]
         public int Count { get; set; }
         
-        [JsonProperty("damageRadius")]
-        public int DamageRadius { get; set; }
+        [JsonProperty("freezeRadius")]
+        public int FreezeRadius { get; set; }
     }
 }
