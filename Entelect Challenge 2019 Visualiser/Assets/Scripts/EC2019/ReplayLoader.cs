@@ -20,11 +20,9 @@ namespace EC2019 {
 
             var roundsList = Directory.GetDirectories(absoluteDirectory);
 
-            var globalStates = new List<GlobalState>();
-            foreach (var round in roundsList) {
-                var jsonMap = round + "/GlobalState.json";
-                globalStates.Add(new JsonFileParser<GlobalState>(jsonMap).GetSerializedData());
-            }
+            var globalStates = roundsList.Select(round => round + Constants.Paths.GlobalStateFilename)
+                .Select(jsonMap => new JsonFileParser<GlobalState>(jsonMap).GetSerializedData())
+                .ToList();
 
             roundsFinishedLoadingEvent?.Invoke(globalStates);
 

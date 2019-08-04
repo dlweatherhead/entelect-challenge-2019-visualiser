@@ -1,3 +1,4 @@
+using EC2019.Utility;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 
@@ -20,7 +21,7 @@ namespace EC2019.Camera {
         }
 
         public void UpdatePositions(int playerACurrentWormId, int playerBCurrentWormId) {
-            GameObject[] worms = GameObject.FindGameObjectsWithTag("Worm");
+            GameObject[] worms = GameObject.FindGameObjectsWithTag(Constants.Tags.Worm);
 
             Vector3 destinationA = playerACameraHolder.transform.position;
             Vector3 destinationB = playerBCameraHolder.transform.position;

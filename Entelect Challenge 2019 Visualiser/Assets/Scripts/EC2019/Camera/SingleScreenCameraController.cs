@@ -1,4 +1,5 @@
 using System;
+using EC2019.Utility;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 
@@ -28,7 +29,7 @@ namespace EC2019.Camera {
 
         public void UpdateSize() {
             var midPoint = Vector3.zero;
-            var worms = GameObject.FindGameObjectsWithTag("Worm");
+            var worms = GameObject.FindGameObjectsWithTag(Constants.Tags.Worm);
 
             if (worms == null || worms.Length <= 0) return;
 
