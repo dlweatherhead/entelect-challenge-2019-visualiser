@@ -1,14 +1,28 @@
 TODO List
 
-Import animation data once available
+Improve Entity Usage
+    - Use Worms in Map instead of in opponents List
+    - Cache worms for easy look up with parent and worm id
 
-Create UI tracking worm health etc.
+Update UI tracking game state
+    - Update Round number
+    - Update Worm Name
+    - Update Worm Health
+    - Animate worm health bar
+    - Update worm weapon damage
+    - Update worm range
+    - Update worm snowball count (depending on class)
+    - Update worm banana bomb count (depending on class)
 
-Create UI tracking game data, points, etc.
-
-Create isometric camera
-
-Billboard character sprites and animations
+Animate actions
+    - Use animation entity
+    - Animations needed
+        - Movement
+        - Digging
+        - Shooting
+        - Prodding
+        - Banana bomb
+        - Snowball
 
 Add Command Prompt
     Implement game speed argument
@@ -17,5 +31,3 @@ Add Command Prompt
 Create intro screen
 
 Create Loading screen
-
-Create sample videos to upload to the group once UI is in place
