@@ -15,6 +15,8 @@ namespace EC2019 {
 
         public static event RoundsReady roundsReadyEvent;
 
+        public GameObject loadingScreen;
+        
         private void Start() {
             var absoluteDirectory = PlayerPrefs.GetString(Constants.PlayerPrefKeys.SelectedReplay);
 
@@ -27,6 +29,8 @@ namespace EC2019 {
             roundsFinishedLoadingEvent?.Invoke(globalStates);
 
             roundsReadyEvent?.Invoke();
+            
+            loadingScreen.SetActive(false);
         }
     }
 }
