@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 1357594482}
   - component: {fileID: 1357594483}
   - component: {fileID: 1357594484}
+  - component: {fileID: 1357594485}
   m_Layer: 0
   m_Name: ReplayManager
   m_TagString: Untagged
@@ -909,9 +910,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2901e5adfc4a99b36242c08fa9605e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualiserManager: {fileID: 1357594485}
   replayRepo: {fileID: 1357594483}
   timePerRound: 1
   cameraMotionDelay: 0.5
+  currentRound: 1
 --- !u!4 &1357594481
 Transform:
   m_ObjectHideFlags: 0
@@ -971,6 +974,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   singleScreenCanvas: {fileID: 1371080459}
   dualScreenCanvas: {fileID: 1955086135}
+--- !u!114 &1357594485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357594479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea6883db4c08fd49931505459b54331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootMaterial: {fileID: 2100000, guid: 0b5ece005619446478b5887c09a46164, type: 2}
+  moveMaterial: {fileID: 2100000, guid: 73ec9711f27b4984b837a8bd55687598, type: 2}
+  digMaterial: {fileID: 2100000, guid: 42da6e24f6ce370499c1121f7c8a5811, type: 2}
+  selectMaterial: {fileID: 2100000, guid: 45978763c148d4a448b3deb55a29d9da, type: 2}
 --- !u!1 &1371080459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3469536404636210994, guid: 28012f65e50132a4eb27e10e3befcbce,

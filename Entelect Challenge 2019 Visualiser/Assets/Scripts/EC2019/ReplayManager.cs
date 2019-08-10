@@ -14,11 +14,13 @@ namespace EC2019 {
 
         public static event NextRoundUpdateUI nextRoundUpdateUIEvent;
 
+        public VisualiserManager visualiserManager;
+        
         public ReplayRepo replayRepo;
         public float timePerRound = 1f;
         public float cameraMotionDelay = 0.5f;
         
-        private int currentRound = 1;
+        public int currentRound = 1;
 
         private TileComponent[] tilesObjects;
 
@@ -60,6 +62,8 @@ namespace EC2019 {
                 else {
                     PopulateNextRoundTiles(round.Map);
                 }
+
+                visualiserManager.processVisualisations(round.VisualizerEvents);
 
                 yield return new WaitForSeconds(timePerRound);
 
