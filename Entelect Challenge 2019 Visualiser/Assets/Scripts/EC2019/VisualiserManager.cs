@@ -1,57 +1,119 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EC2019.Entity;
 using UnityEngine;
 
 namespace EC2019 {
     public class VisualiserManager : MonoBehaviour {
-
         public Material shootMaterial;
+        public GameObject shootingHitAnimation;
+
+        public int bananaBombRadius = 3;
+        public GameObject bananaBombAnimationCenter;
+        public GameObject bananaBombAnimationRadius;
+        
+        public GameObject snowBallAnimation;
+
         public Material moveMaterial;
+        public GameObject moveAnimation;
+
         public Material digMaterial;
+        public GameObject digAnimation;
+
         public Material selectMaterial;
+        public GameObject selectAnimation;
 
         public void processVisualisations(List<VisualiserEvent> visualiserEvents) {
             foreach (var visualiserEvent in visualiserEvents) {
                 if (visualiserEvent.Type.Equals("shoot")) {
                     handleShootEvent(visualiserEvent);
-                } else if (visualiserEvent.Type.Equals("move")) {
+                }
+                else if (visualiserEvent.Type.Equals("bananaBomb")) {
+                    handleBananaBombEvent(visualiserEvent);
+                }
+                else if (visualiserEvent.Type.Equals("snowBall")) {
+                    handleSnowBallEvent(visualiserEvent);
+                }
+                else if (visualiserEvent.Type.Equals("move")) {
                     handleMoveEvent(visualiserEvent);
-                } else if (visualiserEvent.Type.Equals("dig")) {
+                }
+                else if (visualiserEvent.Type.Equals("dig")) {
                     handleDigEvent(visualiserEvent);
-                } else if (visualiserEvent.Type.Equals("select")) {
+                }
+                else if (visualiserEvent.Type.Equals("select")) {
                     handleSelectEvent(visualiserEvent);
-                } 
+                }
             }
         }
 
         private void handleShootEvent(VisualiserEvent visualiserEvent) {
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
-            drawLine(
-                new Vector3(start.x, 0.5f, start.y), 
-                new Vector3(end.x, 0.5f, end.y),
-                shootMaterial);
+
+            var startPos = new Vector3(start.x, 0f, start.y);
+            var endPos = new Vector3(end.x, 0f, end.y);
+
+            drawLine(startPos, endPos, shootMaterial);
+
+            Instantiate(shootingHitAnimation, endPos, Quaternion.identity);
+        }
+
+        private void handleBananaBombEvent(VisualiserEvent visualiserEvent) {
+            var start = visualiserEvent.PositionStart;
+            var end = visualiserEvent.PositionEnd;
+
+            var startPos = new Vector3(start.x, 0f, start.y);
+            var endPos = new Vector3(end.x, 0f, end.y);
+
+            for (int x = -bananaBombRadius; x < bananaBombRadius; x++) {
+                for (int z = -bananaBombRadius; z < bananaBombRadius; z++) {
+                    if (x == 0 && z == 0) {
+                        continue;
+                    }
+
+                    var explosionPos = new Vector3(endPos.x + x, 0f, endPos.z + z);
+                    Instantiate(bananaBombAnimationRadius, explosionPos, Quaternion.identity);
+                }
+            }
+
+            drawLine(startPos, endPos, shootMaterial);
+
+            Instantiate(bananaBombAnimationCenter, endPos, Quaternion.identity);
+        }
+
+        private void handleSnowBallEvent(VisualiserEvent visualiserEvent) {
+            var start = visualiserEvent.PositionStart;
+            var end = visualiserEvent.PositionEnd;
+
+            var startPos = new Vector3(start.x, 0f, start.y);
+            var endPos = new Vector3(end.x, 0f, end.y);
+
+            drawLine(startPos, endPos, shootMaterial);
+
+            Instantiate(snowBallAnimation, endPos, Quaternion.identity);
         }
 
         private void handleMoveEvent(VisualiserEvent visualiserEvent) {
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
             drawLine(
-                new Vector3(start.x, 0f, start.y), 
+                new Vector3(start.x, 0f, start.y),
                 new Vector3(end.x, 0f, end.y),
                 moveMaterial);
         }
 
         private void handleDigEvent(VisualiserEvent visualiserEvent) {
             var endPos = visualiserEvent.PositionEnd;
-            
+
             var o = new GameObject();
             var lineRenderer = o.AddComponent<MeshRenderer>();
             lineRenderer.material = digMaterial;
 
             o.transform.position = new Vector3(endPos.x, 0f, endPos.y);
-            
+
             Destroy(o, 1f);
+            
+            
         }
 
         private void handleSelectEvent(VisualiserEvent visualiserEvent) {
