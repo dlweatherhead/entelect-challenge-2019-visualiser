@@ -11,7 +11,27 @@ namespace EC2019.Utility {
             public const string Worm = "Worm";
         }
 
+        public static class Worm {
+            public static class Profession {
+                public const string Commando = "Commando";
+                public const string Agent = "Agent";
+                public const string Technologist = "Technologist";
+            }
+        }
+
         public static class ParentNames {
+        }
+
+        public static class PlayerA {
+            public const int Number = 1;
+            public const string Name = "A";
+            public const string FolderPrepend = "A -";
+        }
+        
+        public static class PlayerB {
+            public const int Number = 2;
+            public const string Name = "B";
+            public const string FolderPrepend = "B -";
         }
 
         public static class PlayerPrefKeys {
