@@ -1,25 +1,29 @@
 ﻿using System;
+using EC2019;
 using EC2019.Entity;
 using UnityEngine;
 using TMPro;
 
 public class WormUIManager : MonoBehaviour {
-    public TMP_Text profession;
-    public TMP_Text attack;
-    public TMP_Text range;
-    public TMP_Text bananaCount;
 
-    public void Start() {
-        profession.text = "";
-        attack.text = "";
-        range.text = "";
-        bananaCount.text = "";
+    public WormUIComponent playerA_worm1;
+    public WormUIComponent playerA_worm2;
+    public WormUIComponent playerA_worm3;
+
+    public WormUIComponent playerB_worm1;
+    public WormUIComponent playerB_worm2;
+    public WormUIComponent playerB_worm3;
+
+    public void Awake() {
+        ReplayManager.nextRoundUpdateUIEvent += UpdateUI;
     }
 
-    public void UpdateUI(Worm worm) {
-        profession.text = worm?.Profession;
-        attack.text = worm?.Weapon?.Damage.ToString();
-        range.text = worm?.Weapon?.Range.ToString();
-        bananaCount.text = worm?.BananaBombs?.Count.ToString();
+    void UpdateUI(Player playerA, Player playerB) {
+        playerA_worm1.UpdateUI(playerA.Worms[0]);
+        playerA_worm2.UpdateUI(playerA.Worms[1]);
+        playerA_worm3.UpdateUI(playerA.Worms[2]);
+        playerB_worm1.UpdateUI(playerB.Worms[0]);
+        playerB_worm2.UpdateUI(playerB.Worms[1]);
+        playerB_worm3.UpdateUI(playerB.Worms[2]);
     }
 }

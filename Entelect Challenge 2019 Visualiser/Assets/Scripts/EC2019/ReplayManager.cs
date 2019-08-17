@@ -25,7 +25,6 @@ namespace EC2019 {
         private TileComponent[] tilesObjects;
 
         private SingleScreenCameraController singleCamera;
-        private DualScreenCameraController dualCamera;
 
         void OnEnable() {
             ReplayLoader.roundsReadyEvent += RoundsReady;
@@ -33,7 +32,6 @@ namespace EC2019 {
 
         private void Awake() {
             singleCamera = FindObjectOfType<SingleScreenCameraController>();
-            dualCamera = FindObjectOfType<DualScreenCameraController>();
         }
 
         void OnDisable() {
@@ -73,8 +71,6 @@ namespace EC2019 {
                 
                 if (currentRound >= 2) {
                     singleCamera.UpdateSize();
-                    dualCamera.UpdatePositions(playerA.Id, playerB.Id);
-
                     yield return new WaitForSeconds(cameraMotionDelay);
                 }
                 
