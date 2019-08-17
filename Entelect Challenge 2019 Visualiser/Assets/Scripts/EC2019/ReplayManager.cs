@@ -10,7 +10,7 @@ namespace EC2019 {
 
         public static event NextRoundUpdateWorms nextRoundUpdateWormsEvent;
 
-        public delegate void NextRoundUpdateUI(Player playerA, Player playerB);
+        public delegate void NextRoundUpdateUI(GlobalState round);
 
         public static event NextRoundUpdateUI nextRoundUpdateUIEvent;
 
@@ -65,10 +65,8 @@ namespace EC2019 {
 
                 yield return new WaitForSeconds(timePerRound);
 
-                if (nextRoundUpdateUIEvent != null) {
-                    nextRoundUpdateUIEvent(playerA, playerB);
-                }
-                
+                nextRoundUpdateUIEvent?.Invoke(round);
+
                 if (currentRound >= 2) {
                     singleCamera.UpdateSize();
                     yield return new WaitForSeconds(cameraMotionDelay);

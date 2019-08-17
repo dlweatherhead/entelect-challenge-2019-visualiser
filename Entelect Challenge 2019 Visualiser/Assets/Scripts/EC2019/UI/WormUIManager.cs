@@ -19,7 +19,10 @@ public class WormUIManager : MonoBehaviour {
         ReplayManager.nextRoundUpdateUIEvent += UpdateUI;
     }
 
-    void UpdateUI(Player playerA, Player playerB) {
+    void UpdateUI(GlobalState round) {
+        var playerA = round.Opponents[0];
+        var playerB = round.Opponents[1];
+        
         playerA_worm1.UpdateUI(playerA.Worms[0], Constants.PlayerA.Number);
         playerA_worm2.UpdateUI(playerA.Worms[1], Constants.PlayerA.Number);
         playerA_worm3.UpdateUI(playerA.Worms[2], Constants.PlayerA.Number);
