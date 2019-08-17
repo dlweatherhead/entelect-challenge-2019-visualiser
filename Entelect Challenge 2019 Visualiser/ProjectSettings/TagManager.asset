@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Worm
+  - Tile
   layers:
   - Default
   - TransparentFX
@@ -39,9 +41,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Fire
     uniqueID: 3804908061
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Worm
+    uniqueID: 4088780131
+    locked: 0
+  - name: Explosion
+    uniqueID: 971329355
     locked: 0

@@ -987,9 +987,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootMaterial: {fileID: 2100000, guid: 0b5ece005619446478b5887c09a46164, type: 2}
+  shootingHitAnimation: {fileID: 7225458354879913848, guid: 72c6c690265ea9c40809fa224f8a04b6,
+    type: 3}
+  bananaBombRadius: 3
+  bananaBombAnimationCenter: {fileID: 143712286786197499, guid: dc3cf432d1ad40e48b0f71038ad61657,
+    type: 3}
+  bananaBombAnimationRadius: {fileID: 7177783537775198805, guid: 0c42cd8c99e45774392c1160cae675a6,
+    type: 3}
+  snowBallAnimation: {fileID: 91905562213778883, guid: 90be4890c52af604eaa8fce6a83e8181,
+    type: 3}
   moveMaterial: {fileID: 2100000, guid: 73ec9711f27b4984b837a8bd55687598, type: 2}
+  moveAnimation: {fileID: 0}
   digMaterial: {fileID: 2100000, guid: 42da6e24f6ce370499c1121f7c8a5811, type: 2}
+  digAnimation: {fileID: 0}
   selectMaterial: {fileID: 2100000, guid: 45978763c148d4a448b3deb55a29d9da, type: 2}
+  selectAnimation: {fileID: 0}
 --- !u!1 &1371080459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3469536404636210994, guid: 28012f65e50132a4eb27e10e3befcbce,
