@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using EC2019.Entity;
+using EC2019.Utility;
 using UnityEngine;
 
 namespace EC2019 {
@@ -22,6 +23,8 @@ namespace EC2019 {
 
         public Material selectMaterial;
         public GameObject selectAnimation;
+        
+        public GameObject nothingAnimation;
 
         public void processVisualisations(List<VisualiserEvent> visualiserEvents) {
             foreach (var visualiserEvent in visualiserEvents) {
@@ -125,8 +128,6 @@ namespace EC2019 {
             o.transform.position = new Vector3(endPos.x, 0f, endPos.y);
 
             Destroy(o, 1f);
-            
-            
         }
 
         private void handleSelectEvent(VisualiserEvent visualiserEvent) {
@@ -134,7 +135,18 @@ namespace EC2019 {
         }
 
         private void handleNothingEvent(VisualiserEvent visualiserEvent) {
-            Debug.Log("Worm is doing nothing");
+            var wormCommanded = visualiserEvent.WormCommanded;
+
+            var worms = GameObject.FindGameObjectsWithTag(Constants.Tags.Worm);
+            
+            foreach (var o in worms) {
+                var worm = o.GetComponentInChildren<WormComponent>();
+
+                if (worm.playerId == wormCommanded.PlayerId && worm.id == wormCommanded.Id) {
+                    var g = Instantiate(nothingAnimation, worm.transform.position, Quaternion.identity);
+                    Destroy(g, 1f);
+                }
+            }
         }
         
         private void drawLine(Vector3 start, Vector3 end, Material material) {

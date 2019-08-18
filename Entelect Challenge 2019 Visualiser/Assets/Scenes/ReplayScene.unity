@@ -549,6 +549,8 @@ MonoBehaviour:
   digAnimation: {fileID: 0}
   selectMaterial: {fileID: 2100000, guid: 45978763c148d4a448b3deb55a29d9da, type: 2}
   selectAnimation: {fileID: 0}
+  nothingAnimation: {fileID: 1430970005554194656, guid: 9316a8c1f11c74848b857f4f78f91d50,
+    type: 3}
 --- !u!114 &1458691741 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3756169629157643311, guid: 28012f65e50132a4eb27e10e3befcbce,
