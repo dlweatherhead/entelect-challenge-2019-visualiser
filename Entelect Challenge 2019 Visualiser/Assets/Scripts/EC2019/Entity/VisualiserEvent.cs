@@ -18,5 +18,8 @@ namespace EC2019.Entity {
         
         [JsonProperty("wormCommanded")] 
         public WormCommanded WormCommanded { get; set; }
+        
+        [JsonProperty("affectedCells")] 
+        public List<Tile> AffectedCells { get; set; }
     }
 }

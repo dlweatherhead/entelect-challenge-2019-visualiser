@@ -28,10 +28,10 @@ namespace EC2019 {
                 if (visualiserEvent.Type.Equals("shoot")) {
                     handleShootEvent(visualiserEvent);
                 }
-                else if (visualiserEvent.Type.Equals("bananaBomb")) {
+                else if (visualiserEvent.Type.Equals("banana")) {
                     handleBananaBombEvent(visualiserEvent);
                 }
-                else if (visualiserEvent.Type.Equals("snowBall")) {
+                else if (visualiserEvent.Type.Equals("snowball")) {
                     handleSnowBallEvent(visualiserEvent);
                 }
                 else if (visualiserEvent.Type.Equals("move")) {
@@ -42,6 +42,12 @@ namespace EC2019 {
                 }
                 else if (visualiserEvent.Type.Equals("select")) {
                     handleSelectEvent(visualiserEvent);
+                } 
+                else if (visualiserEvent.Type.Equals("nothing")) {
+                    handleNothingEvent(visualiserEvent);
+                }
+                else {
+                    Debug.Log("Unexpected event: " + visualiserEvent.Type);
                 }
             }
         }
@@ -72,13 +78,15 @@ namespace EC2019 {
                     }
 
                     var explosionPos = new Vector3(endPos.x + x, 0f, endPos.z + z);
-                    Instantiate(bananaBombAnimationRadius, explosionPos, Quaternion.identity);
+                    var a2 = Instantiate(bananaBombAnimationRadius, explosionPos, Quaternion.identity);
+                    Destroy(a2, 1f);
                 }
             }
 
             drawLine(startPos, endPos, shootMaterial);
 
-            Instantiate(bananaBombAnimationCenter, endPos, Quaternion.identity);
+            var a1 = Instantiate(bananaBombAnimationCenter, endPos, Quaternion.identity);
+            Destroy(a1, 1f);
         }
 
         private void handleSnowBallEvent(VisualiserEvent visualiserEvent) {
@@ -90,7 +98,12 @@ namespace EC2019 {
 
             drawLine(startPos, endPos, shootMaterial);
 
-            Instantiate(snowBallAnimation, endPos, Quaternion.identity);
+            foreach (var affectedCell in visualiserEvent.AffectedCells) {
+                var cell = new Vector3(affectedCell.X, 0f, affectedCell.Y);
+                var a = Instantiate(snowBallAnimation, cell, Quaternion.identity);
+                
+                Destroy(a, 1f);
+            }
         }
 
         private void handleMoveEvent(VisualiserEvent visualiserEvent) {
@@ -120,14 +133,23 @@ namespace EC2019 {
             Debug.Log("Worm selected");
         }
 
+        private void handleNothingEvent(VisualiserEvent visualiserEvent) {
+            Debug.Log("Worm is doing nothing");
+        }
+        
         private void drawLine(Vector3 start, Vector3 end, Material material) {
+            
+            var updatedStartPos = new Vector3(start.x, 0.5f, start.z);
+            var updatedEndPos = new Vector3(end.x, 0.5f, end.z);
+            
             var o = new GameObject();
             var lineRenderer = o.AddComponent<LineRenderer>();
             lineRenderer.material = material;
             lineRenderer.widthMultiplier = 0.2f;
             lineRenderer.positionCount = 2;
-            lineRenderer.SetPosition(0, start);
-            lineRenderer.SetPosition(1, end);
+            lineRenderer.sortingLayerName = "Lines";
+            lineRenderer.SetPosition(0, updatedStartPos);
+            lineRenderer.SetPosition(1, updatedEndPos);
 
             Destroy(o, 1f);
         }

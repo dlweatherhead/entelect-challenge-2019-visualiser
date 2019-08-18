@@ -475,7 +475,7 @@ MonoBehaviour:
   replayRepo: {fileID: 1357594483}
   timePerRound: 1
   cameraMotionDelay: 0.5
-  currentRound: 1
+  currentRound: 97
 --- !u!4 &1357594481
 Transform:
   m_ObjectHideFlags: 0
