@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using EC2019.Entity;
+using EC2019.Utility;
 using UnityEngine;
 
 namespace EC2019 {
@@ -28,42 +29,45 @@ namespace EC2019 {
         }
 
         private void PopulateGameMapForFirstRound(IEnumerable<List<Tile>> map) {
+            var parent = new GameObject(Constants.ParentNames.TilesHolder);
             foreach (var row in map) {
                 foreach (var tile in row) {
-                    createTile(tile);
+                    createTile(tile, parent);
                 }
             }
         }
 
         private void PopulatePlayerAWorms(IEnumerable<Worm> playerAWorms) {
+            var parent = new GameObject(Constants.ParentNames.PlayerAHolder);
             foreach (var worm in playerAWorms) {
-                createWormPlayerA(worm);
+                createWormPlayerA(worm, parent);
             }
         }
 
         private void PopulatePlayerBWorms(IEnumerable<Worm> playerBWorms) {
+            var parent = new GameObject(Constants.ParentNames.PlayerBHolder);
             foreach (var worm in playerBWorms) {
-                createWormPlayerB(worm);
+                createWormPlayerB(worm, parent);
             }
         }
 
-        private void createTile(Tile tile) {
-            var o = InstantiateObject(genericTile, tile.X, tile.Y);
+        private void createTile(Tile tile, GameObject parent) {
+            var o = InstantiateObject(genericTile, tile.X, tile.Y, parent);
             o.GetComponent<TileComponent>().UpdateTile(tile);
         }
 
-        private void createWormPlayerA(Worm worm) {
-            var wc = InstantiateObject(playerAWorm, worm.Position.x, worm.Position.y);
+        private void createWormPlayerA(Worm worm, GameObject parent) {
+            var wc = InstantiateObject(playerAWorm, worm.Position.x, worm.Position.y, parent);
             wc.GetComponent<WormComponent>().id = worm.Id;
         }
 
-        private void createWormPlayerB(Worm worm) {
-            var wc = InstantiateObject(playerBWorm, worm.Position.x, worm.Position.y);
+        private void createWormPlayerB(Worm worm, GameObject parent) {
+            var wc = InstantiateObject(playerBWorm, worm.Position.x, worm.Position.y, parent);
             wc.GetComponent<WormComponent>().id = worm.Id;
         }
 
-        private static GameObject InstantiateObject(GameObject o, float x, float y) {
-            return Instantiate(o, new Vector3(x, 0f, y), Quaternion.identity);
+        private static GameObject InstantiateObject(GameObject o, float x, float y, GameObject parent) {
+            return Instantiate(o, new Vector3(x, 0f, y), Quaternion.identity, parent.transform);
         }
     }
 }

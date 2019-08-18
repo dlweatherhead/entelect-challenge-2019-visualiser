@@ -20,6 +20,9 @@ namespace EC2019.Utility {
         }
 
         public static class ParentNames {
+            public const string PlayerAHolder = "Player A Holder";
+            public const string PlayerBHolder = "Player B Holder";
+            public const string TilesHolder = "Tiles Holder";
         }
 
         public static class PlayerA {
