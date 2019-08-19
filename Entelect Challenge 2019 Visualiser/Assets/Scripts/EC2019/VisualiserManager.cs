@@ -110,12 +110,8 @@ namespace EC2019 {
         }
 
         private void handleMoveEvent(VisualiserEvent visualiserEvent) {
-            var start = visualiserEvent.PositionStart;
-            var end = visualiserEvent.PositionEnd;
-            drawLine(
-                new Vector3(start.x, 0f, start.y),
-                new Vector3(end.x, 0f, end.y),
-                moveMaterial);
+            // No-op
+            // Todo - Add animation event or tiles indicating move path
         }
 
         private void handleDigEvent(VisualiserEvent visualiserEvent) {
