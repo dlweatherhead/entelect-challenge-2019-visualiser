@@ -508,11 +508,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: e0ba6c6de15411042a7fa0dd0a21db0d, type: 2}
-  amount: 1
+  amount: 0.4
   gridtype: 1
   gridcolor: {r: 0, g: 0, b: 0, a: 1}
   xstep: 1
-  ystep: 2
+  ystep: 4
   xoffset: 0
   yoffset: 0
   xmin: 0
@@ -580,7 +580,7 @@ MonoBehaviour:
   replayRepo: {fileID: 1357594483}
   timePerRound: 1
   cameraMotionDelay: 0.5
-  currentRound: 1
+  currentRound: 80
 --- !u!4 &1357594481
 Transform:
   m_ObjectHideFlags: 0
