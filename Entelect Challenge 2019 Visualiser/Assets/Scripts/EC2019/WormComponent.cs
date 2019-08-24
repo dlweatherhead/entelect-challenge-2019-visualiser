@@ -1,21 +1,25 @@
+using System;
 using System.Collections.Generic;
 using EC2019.Entity;
 using UnityEngine;
 
 namespace EC2019 {
-    public class WormComponent : MonoBehaviour
-    {
+    public class WormComponent : MonoBehaviour {
         public int playerId;
         public int id;
-        
+
+        public float moveSpeed = 1f;
+
+        private Vector3 target;
+        private bool isMoving;
+
         void Start() {
             ReplayManager.nextRoundUpdateWormsEvent += UpdateWorm;
         }
 
-        void UpdateWorm(Player player)
-        {
+        void UpdateWorm(Player player) {
             var worms = player.Worms;
-            
+
             foreach (var worm in worms) {
                 if (player.Id == playerId && worm.Id == id) {
                     UpdateWormPosition(worm.Position);
@@ -23,8 +27,22 @@ namespace EC2019 {
             }
         }
 
+        void Update() {
+            if (isMoving) {
+                float step = moveSpeed * Time.deltaTime;
+
+                transform.position = Vector3.MoveTowards(transform.position, target, step);
+
+                if (Vector3.Distance(transform.position, target) < 0.001f) {
+                    isMoving = false;
+                    gameObject.transform.position = target;
+                }
+            }
+        }
+
         private void UpdateWormPosition(Vector2 position) {
-            gameObject.transform.position = new Vector3(position.x, 0f, position.y);
+            isMoving = true;
+            target = new Vector3(position.x, 0f, position.y);
         }
     }
 }

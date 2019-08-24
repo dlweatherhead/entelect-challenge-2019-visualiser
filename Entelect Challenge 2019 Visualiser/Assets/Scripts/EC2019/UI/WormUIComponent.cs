@@ -34,9 +34,6 @@ public class WormUIComponent : MonoBehaviour {
     }
 
     public void UpdateUI(Worm worm, int playerId) {
-
-        Debug.Log(worm.PlayerId);
-        
         if (playerId == Constants.PlayerA.Number) {
             healthBar.UpdateColor(ColorPalette.PlayerA);
         } else if (playerId == Constants.PlayerB.Number) {
