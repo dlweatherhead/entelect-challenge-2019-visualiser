@@ -9,7 +9,6 @@ public class WormUIComponent : MonoBehaviour {
     public UIItemCount bananaBombCount;
 
     public GameObject frozenIcon;
-    public TMP_Text frozenText;
 
     public SimpleHealthBar healthBar;
 
@@ -30,7 +29,6 @@ public class WormUIComponent : MonoBehaviour {
         healthBar.UpdateBar(100, 100);
 
         frozenIcon.SetActive(false);
-        frozenText.text = "";
     }
 
     public void UpdateUI(Worm worm, int playerId) {
@@ -57,13 +55,6 @@ public class WormUIComponent : MonoBehaviour {
 
         healthBar.UpdateBar(worm.Health, maxHealth);
 
-        if (worm.RoundsUntilUnfrozen > 0) {
-            frozenIcon.SetActive(true);
-            frozenText.text = worm.RoundsUntilUnfrozen.ToString();
-        }
-        else {
-            frozenIcon.SetActive(false);
-            frozenText.text = "";
-        }
+        frozenIcon.SetActive(worm.RoundsUntilUnfrozen > 0);
     }
 }
