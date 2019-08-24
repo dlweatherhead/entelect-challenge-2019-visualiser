@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2751134339532680229}
   - component: {fileID: 2751134339532680228}
   m_Layer: 0
-  m_Name: Worms_0
+  m_Name: Red Agent Blinking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2751134339532680231}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2246573107271198888}
   m_RootOrder: 0
@@ -112,12 +112,12 @@ GameObject:
   - component: {fileID: 2751134341193953423}
   - component: {fileID: 2751134341193953422}
   m_Layer: 0
-  m_Name: Worms_3
+  m_Name: Red Agent Moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2751134341193953420
 Transform:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 2751134341193953417}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2246573107271198888}
   m_RootOrder: 1
@@ -209,9 +209,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2246573107271198888}
+  - component: {fileID: -8242072320621244366}
   m_Layer: 0
   m_Name: Red Agent
-  m_TagString: Untagged
+  m_TagString: Worm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,3 +233,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8242072320621244366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3647057902671381369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c4d087dfd04c21b3d3d73f221a6a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 2
+  id: 0
+  moveSpeed: 1

@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5054488739481009290}
+  - component: {fileID: 4391923033162154858}
   m_Layer: 0
   m_Name: Red Technologist
-  m_TagString: Untagged
+  m_TagString: Worm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4391923033162154858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000578508595854556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c4d087dfd04c21b3d3d73f221a6a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 2
+  id: 0
+  moveSpeed: 1
 --- !u!1 &9152291534382313711
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,12 +60,12 @@ GameObject:
   - component: {fileID: 9152291534382313705}
   - component: {fileID: 9152291534382313710}
   m_Layer: 0
-  m_Name: Worms_9
+  m_Name: Red Technologist Moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9152291534382313704
 Transform:
   m_ObjectHideFlags: 0
@@ -59,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 9152291534382313711}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5054488739481009290}
   m_RootOrder: 1
@@ -143,7 +159,7 @@ GameObject:
   - component: {fileID: 9152291534541412592}
   - component: {fileID: 9152291534541412593}
   m_Layer: 0
-  m_Name: Worms_6
+  m_Name: Red Technologist Blinking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +174,7 @@ Transform:
   m_GameObject: {fileID: 9152291534541412598}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5054488739481009290}
   m_RootOrder: 0

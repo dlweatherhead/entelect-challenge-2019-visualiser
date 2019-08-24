@@ -578,9 +578,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualiserManager: {fileID: 1357594485}
   replayRepo: {fileID: 1357594483}
-  timePerRound: 1
-  cameraMotionDelay: 0.5
-  currentRound: 80
+  timePerRound: 0.5
+  cameraMotionDelay: 0.2
+  currentRound: 1
 --- !u!4 &1357594481
 Transform:
   m_ObjectHideFlags: 0
@@ -610,9 +610,9 @@ MonoBehaviour:
   replayRepo: {fileID: 1357594483}
   genericTile: {fileID: 3602772592548260226, guid: 3a45ce9bf3f655643acbc26cbd7d4ab6,
     type: 3}
-  playerAWorm: {fileID: 7481542133969421867, guid: 2a204396a3a71eb45976ec4ff69c769d,
+  playerAWorm: {fileID: 1804929137988979769, guid: 8f48effe17c63f341a0db919be0e2f40,
     type: 3}
-  playerBWorm: {fileID: 4237762236544496440, guid: 74ca0746fa3d78d43a2257c6f3ec8956,
+  playerBWorm: {fileID: 478064158988037165, guid: e45cb231adace164298575b09880f65b,
     type: 3}
 --- !u!114 &1357594483
 MonoBehaviour:

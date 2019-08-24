@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3561921588905058931}
+  - component: {fileID: -109283490603765155}
   m_Layer: 0
   m_Name: Blue Commando
-  m_TagString: Untagged
+  m_TagString: Worm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-109283490603765155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804929137988979769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c4d087dfd04c21b3d3d73f221a6a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 1
+  id: 0
+  moveSpeed: 1
 --- !u!1 &5568889153596160211
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,12 +60,12 @@ GameObject:
   - component: {fileID: 5568889153596160221}
   - component: {fileID: 5568889153596160220}
   m_Layer: 0
-  m_Name: Worms_27
+  m_Name: Blue Commando Moving
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5568889153596160222
 Transform:
   m_ObjectHideFlags: 0
@@ -59,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 5568889153596160211}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: -0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3561921588905058931}
   m_RootOrder: 1
@@ -144,7 +160,7 @@ GameObject:
   - component: {fileID: 5568889153663381443}
   - component: {fileID: 5568889153663381442}
   m_Layer: 0
-  m_Name: Worms_24
+  m_Name: Blue Commando Blinking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,7 +175,7 @@ Transform:
   m_GameObject: {fileID: 5568889153663381441}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: -0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3561921588905058931}
   m_RootOrder: 0
