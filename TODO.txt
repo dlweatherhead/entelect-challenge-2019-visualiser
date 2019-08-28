@@ -1,33 +1,27 @@
 TODO List
 
-Improve Entity Usage
-    - Use Worms in Map instead of in opponents List
-    - Cache worms for easy look up with parent and worm id
+- Added throwing animation for worm
+- Implement worm animation switching (moving, idle, throwing, etc.)
+- Implement worm digging animation
 
-Update UI tracking game state
-    - Update Round number
-    - Update Worm Name
-    - Update Worm Health
-    - Animate worm health bar
-    - Update worm weapon damage
-    - Update worm range
-    - Update worm snowball count (depending on class)
-    - Update worm banana bomb count (depending on class)
+- Implement worm death animation
+- Removing/destroying worm from camera control
+- Implement worm death avatar
 
-Animate actions
-    - Use animation entity
-    - Animations needed
-        - Movement
-        - Digging
-        - Shooting
-        - Prodding
-        - Banana bomb
-        - Snowball
+- Implement player name loading (for loading screen and replay manager)
+
+- Implement versus/loading screen
+- Implement winning screen
+
+- Implement rock destroy animation
+
+- Implement select animation
+
+- Rearrange UI layout
+- Remove worms damage/range
+- Add player Select count
 
 Add Command Prompt
     Implement game speed argument
     Implement match directory argument
-
-Create intro screen
-
-Create Loading screen
+    Load arguments in to Replay Manager

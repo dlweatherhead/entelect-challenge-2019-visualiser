@@ -578,8 +578,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualiserManager: {fileID: 1357594485}
   replayRepo: {fileID: 1357594483}
-  timePerRound: 0.5
-  cameraMotionDelay: 0.2
+  timePerRound: 1
+  cameraMotionDelay: 0.5
   currentRound: 1
 --- !u!4 &1357594481
 Transform:
@@ -647,6 +647,18 @@ MonoBehaviour:
   bananaBombAnimationRadius: {fileID: 8705489427829881898, guid: 2a72499e39b0577498007f606f798f7c,
     type: 3}
   snowBallAnimation: {fileID: 4640073282469799448, guid: 2c69b2cb79001584c94e9dc53b07721d,
+    type: 3}
+  bombAnimationA: {fileID: 2711524772791660336, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+    type: 3}
+  bombAnimationB: {fileID: 6389087899344856794, guid: 9ab5801317c8dd4468c514d692a63af9,
+    type: 3}
+  snowballAnimationA: {fileID: 2837451966358218682, guid: 8bd85f52e6203b34193d23b5957d75c8,
+    type: 3}
+  snowballAnimationB: {fileID: 7236058238104853289, guid: e7d6acef403e04544be4997d9a59cde2,
+    type: 3}
+  bananaAnimationA: {fileID: 8202231227620608662, guid: 04bb6a659f5ff6648b834961e8242227,
+    type: 3}
+  bananaAnimationB: {fileID: 312362533944603987, guid: c4b116eb103198649b7242addcbfd209,
     type: 3}
   moveMaterial: {fileID: 2100000, guid: 73ec9711f27b4984b837a8bd55687598, type: 2}
   moveAnimation: {fileID: 0}

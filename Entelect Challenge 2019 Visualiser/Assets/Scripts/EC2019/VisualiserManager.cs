@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using EC2019.Entity;
 using EC2019.Utility;
@@ -15,6 +16,13 @@ namespace EC2019 {
         
         public GameObject snowBallAnimation;
 
+        public GameObject bombAnimationA;
+        public GameObject bombAnimationB;
+        public GameObject snowballAnimationA;
+        public GameObject snowballAnimationB;
+        public GameObject bananaAnimationA;
+        public GameObject bananaAnimationB;
+
         public Material moveMaterial;
         public GameObject moveAnimation;
 
@@ -29,13 +37,13 @@ namespace EC2019 {
         public void processVisualisations(List<VisualiserEvent> visualiserEvents) {
             foreach (var visualiserEvent in visualiserEvents) {
                 if (visualiserEvent.Type.Equals("shoot")) {
-                    handleShootEvent(visualiserEvent);
+                    StartCoroutine(handleShootEvent(visualiserEvent));
                 }
                 else if (visualiserEvent.Type.Equals("banana")) {
-                    handleBananaBombEvent(visualiserEvent);
+                    StartCoroutine(handleBananaBombEvent(visualiserEvent));
                 }
                 else if (visualiserEvent.Type.Equals("snowball")) {
-                    handleSnowBallEvent(visualiserEvent);
+                    StartCoroutine(handleSnowBallEvent(visualiserEvent));
                 }
                 else if (visualiserEvent.Type.Equals("move")) {
                     handleMoveEvent(visualiserEvent);
@@ -55,24 +63,42 @@ namespace EC2019 {
             }
         }
 
-        private void handleShootEvent(VisualiserEvent visualiserEvent) {
+        private IEnumerator handleShootEvent(VisualiserEvent visualiserEvent) {
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
 
             var startPos = new Vector3(start.x, 0f, start.y);
             var endPos = new Vector3(end.x, 0f, end.y);
 
-            drawLine(startPos, endPos, shootMaterial);
+            if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
+                var o = Instantiate(bombAnimationA, startPos, Quaternion.identity);
+                o.GetComponent<ThrowAnimation>().destination = endPos;
+            } else if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerB.Number) {
+                var o = Instantiate(bombAnimationB, startPos, Quaternion.identity);
+                o.GetComponent<ThrowAnimation>().destination = endPos;
+            }
+            
+            yield return new WaitForSeconds(ReplayManager.globalTimePerRound/2f);
 
             Instantiate(shootingHitAnimation, endPos, Quaternion.identity);
         }
 
-        private void handleBananaBombEvent(VisualiserEvent visualiserEvent) {
+        private IEnumerator handleBananaBombEvent(VisualiserEvent visualiserEvent) {
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
 
             var startPos = new Vector3(start.x, 0f, start.y);
             var endPos = new Vector3(end.x, 0f, end.y);
+            
+            if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
+                var o = Instantiate(bananaAnimationA, startPos, Quaternion.identity);
+                o.GetComponent<ThrowAnimation>().destination = endPos;
+            } else if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerB.Number) {
+                var o = Instantiate(bananaAnimationB, startPos, Quaternion.identity);
+                o.GetComponent<ThrowAnimation>().destination = endPos;
+            }
+            
+            yield return new WaitForSeconds(ReplayManager.globalTimePerRound/2f);
 
             for (int x = -bananaBombRadius; x < bananaBombRadius; x++) {
                 for (int z = -bananaBombRadius; z < bananaBombRadius; z++) {
@@ -82,30 +108,36 @@ namespace EC2019 {
 
                     var explosionPos = new Vector3(endPos.x + x, 0f, endPos.z + z);
                     var a2 = Instantiate(bananaBombAnimationRadius, explosionPos, Quaternion.identity);
-                    Destroy(a2, 1f);
+                    Destroy(a2, ReplayManager.globalTimePerRound);
                 }
             }
 
-            drawLine(startPos, endPos, shootMaterial);
-
             var a1 = Instantiate(bananaBombAnimationCenter, endPos, Quaternion.identity);
-            Destroy(a1, 1f);
+            Destroy(a1, ReplayManager.globalTimePerRound);
         }
 
-        private void handleSnowBallEvent(VisualiserEvent visualiserEvent) {
+        private IEnumerator handleSnowBallEvent(VisualiserEvent visualiserEvent) {
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
 
             var startPos = new Vector3(start.x, 0f, start.y);
             var endPos = new Vector3(end.x, 0f, end.y);
-
-            drawLine(startPos, endPos, shootMaterial);
+            
+            if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
+                var o = Instantiate(snowballAnimationA, startPos, Quaternion.identity);
+                o.GetComponent<ThrowAnimation>().destination = endPos;
+            } else if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerB.Number) {
+                var o = Instantiate(snowballAnimationB, startPos, Quaternion.identity);
+                o.GetComponent<ThrowAnimation>().destination = endPos;
+            }
+            
+            yield return new WaitForSeconds(ReplayManager.globalTimePerRound/2f);
 
             foreach (var affectedCell in visualiserEvent.AffectedCells) {
                 var cell = new Vector3(affectedCell.X, 0f, affectedCell.Y);
                 var a = Instantiate(snowBallAnimation, cell, Quaternion.identity);
                 
-                Destroy(a, 1f);
+                Destroy(a, ReplayManager.globalTimePerRound);
             }
         }
 
@@ -123,7 +155,7 @@ namespace EC2019 {
 
             o.transform.position = new Vector3(endPos.x, 0f, endPos.y);
 
-            Destroy(o, 1f);
+            Destroy(o, ReplayManager.globalTimePerRound);
         }
 
         private void handleSelectEvent(VisualiserEvent visualiserEvent) {
@@ -140,7 +172,7 @@ namespace EC2019 {
 
                 if (worm.playerId == wormCommanded.PlayerId && worm.id == wormCommanded.Id) {
                     var g = Instantiate(nothingAnimation, worm.transform.position, Quaternion.identity);
-                    Destroy(g, 1f);
+                    Destroy(g, ReplayManager.globalTimePerRound);
                 }
             }
         }
@@ -159,7 +191,7 @@ namespace EC2019 {
             lineRenderer.SetPosition(0, updatedStartPos);
             lineRenderer.SetPosition(1, updatedEndPos);
 
-            Destroy(o, 1f);
+            Destroy(o, ReplayManager.globalTimePerRound);
         }
     }
 }

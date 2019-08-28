@@ -2077,6 +2077,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9316a8c1f11c74848b857f4f78f91d50, type: 3}
+--- !u!1001 &828682412476026769
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 312362533944603987, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_Name
+      value: Banana Anim Player B
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063536041286140165, guid: c4b116eb103198649b7242addcbfd209,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c4b116eb103198649b7242addcbfd209, type: 3}
 --- !u!4 &1349827695095169728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1349827695095169728, guid: 27e1eeb3790aea54ba66bc854ff3e8f3,
@@ -2170,6 +2239,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 232f455ad511aa948aaafbdd832180dc, type: 3}
+--- !u!1001 &2109597744039678999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7236058238104853289, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_Name
+      value: Snowball Anim Player B
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667154105322010240, guid: e7d6acef403e04544be4997d9a59cde2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7d6acef403e04544be4997d9a59cde2, type: 3}
 --- !u!1001 &2188052218098131970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2436,6 +2574,213 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7364459309038030560}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4411942411731943476
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2711524772791660336, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_Name
+      value: Grenade Anim Player A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666486802889609615, guid: 2c59fad67d823e847ad163fe5a99fa8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c59fad67d823e847ad163fe5a99fa8a, type: 3}
+--- !u!1001 &4794282692779528399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8202231227620608662, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_Name
+      value: Banana Anim Player A
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966726173103170729, guid: 04bb6a659f5ff6648b834961e8242227,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04bb6a659f5ff6648b834961e8242227, type: 3}
+--- !u!1001 &4837744895050533114
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6389087899344856794, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_Name
+      value: Grenade Anim Player B
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706743878250537405, guid: 9ab5801317c8dd4468c514d692a63af9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ab5801317c8dd4468c514d692a63af9, type: 3}
 --- !u!4 &5054488739481009290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5054488739481009290, guid: 484464cb54f273d4481150ffa11c4d79,
@@ -2797,6 +3142,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e45cb231adace164298575b09880f65b, type: 3}
+--- !u!1001 &5839728297051533260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2837451966358218682, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_Name
+      value: Snowball Anim Player A
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3464664815830483477, guid: 8bd85f52e6203b34193d23b5957d75c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8bd85f52e6203b34193d23b5957d75c8, type: 3}
 --- !u!1001 &5947576252603471448
 PrefabInstance:
   m_ObjectHideFlags: 0

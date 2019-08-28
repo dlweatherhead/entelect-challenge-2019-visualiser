@@ -18,9 +18,11 @@ namespace EC2019 {
         
         public ReplayRepo replayRepo;
         public float timePerRound = 1f;
+        public static float globalTimePerRound = 1f;
         public float cameraMotionDelay = 0.5f;
         
         public int currentRound = 1;
+        
 
         private TileComponent[] tilesObjects;
 
@@ -32,6 +34,7 @@ namespace EC2019 {
 
         private void Awake() {
             singleCamera = FindObjectOfType<SingleScreenCameraController>();
+            globalTimePerRound = timePerRound;
         }
 
         void OnDisable() {
@@ -45,6 +48,7 @@ namespace EC2019 {
         private IEnumerator GameLoop() {
             while (true) {
                 var round = replayRepo.GetRound(currentRound);
+                globalTimePerRound = timePerRound;
                 
                 var playerA = round.Opponents[0];
                 var playerB = round.Opponents[1];
@@ -54,6 +58,10 @@ namespace EC2019 {
                     nextRoundUpdateWormsEvent(playerB);
                 }
 
+                visualiserManager.processVisualisations(round.VisualizerEvents);
+                
+                yield return new WaitForSeconds(timePerRound/2);
+                
                 if (tilesObjects == null || tilesObjects.Length == 0) {
                     tilesObjects = FindObjectsOfType<TileComponent>();
                 }
@@ -61,9 +69,7 @@ namespace EC2019 {
                     PopulateNextRoundTiles(round.Map);
                 }
 
-                visualiserManager.processVisualisations(round.VisualizerEvents);
-
-                yield return new WaitForSeconds(timePerRound);
+                yield return new WaitForSeconds(timePerRound/2);
 
                 nextRoundUpdateUIEvent?.Invoke(round);
 
