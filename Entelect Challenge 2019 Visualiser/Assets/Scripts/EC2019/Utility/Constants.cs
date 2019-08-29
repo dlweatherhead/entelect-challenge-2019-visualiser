@@ -28,17 +28,21 @@ namespace EC2019.Utility {
         public static class PlayerA {
             public const int Number = 1;
             public const string Name = "A";
-            public const string FolderPrepend = "A -";
+            public const string FolderPrepend = "A - ";
         }
         
         public static class PlayerB {
             public const int Number = 2;
             public const string Name = "B";
-            public const string FolderPrepend = "B -";
+            public const string FolderPrepend = "B - ";
         }
 
         public static class PlayerPrefKeys {
             public const string SelectedReplay = "SelectedReplay";
+            public const string StepTime = "StepTime";
+            public const string RoundStep = "RoundStep";
+            public const string PlayerAName = "PlayerAName";
+            public const string PlayerBName = "PlayerBName";
         }
 
         public static class UI {

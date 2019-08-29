@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MatchSelectionScene.unity
-    guid: 22f12624a30a64bd5864647e5e4a0d19
+    path: Assets/Scenes/IntroSceneLoader.unity
+    guid: 643dba7324efed845a780857cd02817c
   - enabled: 1
     path: Assets/Scenes/ReplayScene.unity
     guid: edf8f9230897e024383b46ca9c9689ea
