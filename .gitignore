@@ -1,3 +1,4 @@
 # Ignore Match Logs for testing
-/matches/
+[Mm]atches/
 .DS_Store
+[Bb]uild/
