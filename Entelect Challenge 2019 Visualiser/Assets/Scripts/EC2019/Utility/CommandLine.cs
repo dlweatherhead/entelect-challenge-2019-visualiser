@@ -27,11 +27,11 @@ namespace EC2019.Utility {
         }
         
         public int GetRoundStep() {
-            return int.Parse(argumentDictionary[RoundStep]);
+            return argumentDictionary.ContainsKey(RoundStep) ? int.Parse(argumentDictionary[RoundStep]) : 1;
         }
         
         public float GetStepTime() {
-            return float.Parse(argumentDictionary[StepTime]);
+            return argumentDictionary.ContainsKey(StepTime) ? int.Parse(argumentDictionary[StepTime]) : 1f;
         }
         
         public string GetMatchRound() {

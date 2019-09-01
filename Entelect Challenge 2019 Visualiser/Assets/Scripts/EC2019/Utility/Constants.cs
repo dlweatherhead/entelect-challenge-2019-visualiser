@@ -45,18 +45,8 @@ namespace EC2019.Utility {
             public const string PlayerBName = "PlayerBName";
         }
 
-        public static class UI {
-            public const string Play = "Play";
-            public const string Pause = "Pause";
-        }
-
         public static class Paths {
             public const string GlobalStateFilename = "/GlobalState.json";
-            public const string ExampleReplays = "/Resources/matches";
-            public const string DeployedReplays = "/matches";
-            public const string MapName = "/JsonMap.json";
-            public const string RoundFolderNamePrefix = "Round ";
-            public const string EndGameStateFileName = "endGameState.txt";
         }
     }
 }

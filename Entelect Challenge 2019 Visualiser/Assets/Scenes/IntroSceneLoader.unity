@@ -2079,7 +2079,6 @@ MonoBehaviour:
   isEditor: 0
   editorStepTime: 1
   editorRoundStep: 1
-  editorMatchRound: ../Matches/2019.07.30.10.00.20
   editorPlayerAName: Keanu The Reeviest
   editorPlayerBName: Ozymandias the Sassiest
 --- !u!4 &1663653241
