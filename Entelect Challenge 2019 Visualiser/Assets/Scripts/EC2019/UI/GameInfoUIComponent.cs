@@ -1,9 +1,13 @@
 ﻿using EC2019.Entity;
+using EC2019.Utility;
 using TMPro;
 using UnityEngine;
 
 namespace EC2019.UI {
     public class GameInfoUIComponent : MonoBehaviour {
+
+        public TMP_Text player_A_Name;
+        public TMP_Text player_B_Name;
 
         public SimpleHealthBar player_A_Health;
         public TMP_Text player_A_Score;
@@ -16,6 +20,9 @@ namespace EC2019.UI {
         
         public void Awake() {
             ReplayManager.nextRoundUpdateUIEvent += UpdateUI;
+
+            player_A_Name.text = PlayerPrefs.GetString(Constants.PlayerPrefKeys.PlayerAName);
+            player_B_Name.text = PlayerPrefs.GetString(Constants.PlayerPrefKeys.PlayerBName);
         }
 
         public void UpdateUI(GlobalState round) {

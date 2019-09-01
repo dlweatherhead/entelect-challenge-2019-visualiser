@@ -43,6 +43,9 @@ namespace EC2019.Utility {
             public const string RoundStep = "RoundStep";
             public const string PlayerAName = "PlayerAName";
             public const string PlayerBName = "PlayerBName";
+            public const string WinningScore = "WinningScore";
+            public const string WinningName = "WinningName";
+            public const string WinningPlayer = "WinningPlayer";
         }
 
         public static class Paths {
