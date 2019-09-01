@@ -9,8 +9,12 @@ namespace EC2019 {
 
         public GameObject genericTile;
 
-        public GameObject playerAWorm;
-        public GameObject playerBWorm;
+        public GameObject playerAWormAgent;
+        public GameObject playerAWormCommando;
+        public GameObject playerAWormTechnologist;
+        public GameObject playerBWormAgent;
+        public GameObject playerBWormCommando;
+        public GameObject playerBWormTechnologist;
 
         void OnEnable() {
             ReplayLoader.roundsReadyEvent += RoundsReady;
@@ -57,12 +61,30 @@ namespace EC2019 {
         }
 
         private void createWormPlayerA(Worm worm, GameObject parent) {
-            var wc = InstantiateObject(playerAWorm, worm.Position.x, worm.Position.y, parent);
+            var profession = worm.Profession;
+            var toInstantiate = playerAWormAgent;
+            if (profession.Equals(Constants.Worm.Profession.Agent)) {
+                toInstantiate = playerAWormAgent;
+            } else if (profession.Equals(Constants.Worm.Profession.Commando)) {
+                toInstantiate = playerAWormCommando;
+            } else if (profession.Equals(Constants.Worm.Profession.Technologist)) {
+                toInstantiate = playerAWormTechnologist;
+            }
+            var wc = InstantiateObject(toInstantiate, worm.Position.x, worm.Position.y, parent);
             wc.GetComponent<WormComponent>().id = worm.Id;
         }
 
         private void createWormPlayerB(Worm worm, GameObject parent) {
-            var wc = InstantiateObject(playerBWorm, worm.Position.x, worm.Position.y, parent);
+            var profession = worm.Profession;
+            var toInstantiate = playerBWormAgent;
+            if (profession.Equals(Constants.Worm.Profession.Agent)) {
+                toInstantiate = playerBWormAgent;
+            } else if (profession.Equals(Constants.Worm.Profession.Commando)) {
+                toInstantiate = playerBWormCommando;
+            } else if (profession.Equals(Constants.Worm.Profession.Technologist)) {
+                toInstantiate = playerBWormTechnologist;
+            }
+            var wc = InstantiateObject(toInstantiate, worm.Position.x, worm.Position.y, parent);
             wc.GetComponent<WormComponent>().id = worm.Id;
         }
 
