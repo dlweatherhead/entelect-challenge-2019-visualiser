@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using EC2019.Entity;
 using UnityEngine;
@@ -10,6 +11,11 @@ namespace EC2019 {
 
         public float moveSpeed = 1f;
 
+        public GameObject idleWorm;
+        public GameObject movingWorm;
+        
+        public GameObject wormGrave;
+        
         private Vector3 target;
         private bool isMoving;
 
@@ -22,9 +28,21 @@ namespace EC2019 {
 
             foreach (var worm in worms) {
                 if (player.Id == playerId && worm.Id == id) {
-                    UpdateWormPosition(worm.Position);
+                    if (worm.Health <= 0) {
+                        StartCoroutine(DeathAnimationAndDestroyWorm());
+                    }
+                    else {
+                        UpdateWormPosition(worm.Position);                        
+                    }
                 }
             }
+        }
+
+        private IEnumerator DeathAnimationAndDestroyWorm() {
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(wormGrave, transform.position, Quaternion.identity);
+            ReplayManager.nextRoundUpdateWormsEvent -= UpdateWorm;
+            Destroy(gameObject); 
         }
 
         void Update() {
@@ -35,6 +53,8 @@ namespace EC2019 {
 
                 if (Vector3.Distance(transform.position, target) < 0.001f) {
                     isMoving = false;
+                    idleWorm.SetActive(true);
+                    movingWorm.SetActive(false);
                     gameObject.transform.position = target;
                 }
             }
@@ -42,6 +62,8 @@ namespace EC2019 {
 
         private void UpdateWormPosition(Vector2 position) {
             isMoving = true;
+            idleWorm.SetActive(false);
+            movingWorm.SetActive(true);
             target = new Vector3(position.x, 0f, position.y);
         }
     }

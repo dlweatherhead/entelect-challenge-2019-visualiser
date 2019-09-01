@@ -248,3 +248,7 @@ MonoBehaviour:
   playerId: 2
   id: 0
   moveSpeed: 1
+  idleWorm: {fileID: 2751134339532680231}
+  movingWorm: {fileID: 2751134341193953417}
+  wormGrave: {fileID: 8600243163259941299, guid: f17b96eca96b4a6438ae2bb198bdec87,
+    type: 3}
