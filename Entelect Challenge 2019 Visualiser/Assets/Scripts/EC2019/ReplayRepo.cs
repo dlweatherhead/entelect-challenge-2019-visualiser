@@ -21,4 +21,8 @@ public class ReplayRepo : MonoBehaviour {
     public GlobalState GetRound(int round) {
         return rounds[round];
     }
+
+    public int totalRounds() {
+        return rounds.Count;
+    }
 }

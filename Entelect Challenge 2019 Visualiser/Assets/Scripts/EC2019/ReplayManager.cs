@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using EC2019.Camera;
 using EC2019.Entity;
+using EC2019.Utility;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace EC2019 {
     public class ReplayManager : MonoBehaviour {
@@ -15,14 +17,13 @@ namespace EC2019 {
         public static event NextRoundUpdateUI nextRoundUpdateUIEvent;
 
         public VisualiserManager visualiserManager;
-        
+
         public ReplayRepo replayRepo;
         public float timePerRound = 1f;
         public static float globalTimePerRound = 1f;
         public float cameraMotionDelay = 0.5f;
-        
+
         public int currentRound = 1;
-        
 
         private TileComponent[] tilesObjects;
 
@@ -49,7 +50,7 @@ namespace EC2019 {
             while (true) {
                 var round = replayRepo.GetRound(currentRound);
                 globalTimePerRound = timePerRound;
-                
+
                 var playerA = round.Opponents[0];
                 var playerB = round.Opponents[1];
 
@@ -59,9 +60,9 @@ namespace EC2019 {
                 }
 
                 visualiserManager.processVisualisations(round.VisualizerEvents);
-                
-                yield return new WaitForSeconds(timePerRound/2);
-                
+
+                yield return new WaitForSeconds(timePerRound / 2);
+
                 if (tilesObjects == null || tilesObjects.Length == 0) {
                     tilesObjects = FindObjectsOfType<TileComponent>();
                 }
@@ -69,7 +70,7 @@ namespace EC2019 {
                     PopulateNextRoundTiles(round.Map);
                 }
 
-                yield return new WaitForSeconds(timePerRound/2);
+                yield return new WaitForSeconds(timePerRound / 2);
 
                 nextRoundUpdateUIEvent?.Invoke(round);
 
@@ -77,10 +78,36 @@ namespace EC2019 {
                     singleCamera.UpdateSize();
                     yield return new WaitForSeconds(cameraMotionDelay);
                 }
-                
-                currentRound++;
 
-                // Break when round ends
+                if (currentRound < replayRepo.totalRounds() - 1) {
+                    currentRound++;
+                }
+                else {
+                    string winningName = PlayerPrefs.GetString(Constants.PlayerPrefKeys.PlayerAName);
+                    int winningScore = playerA.Score;
+                    int winningPlayer = playerA.Id;
+                    
+                    if (playerA.Health == playerB.Health || currentRound == 399) {
+                        if (playerA.Score < playerB.Score) {
+                            winningName = PlayerPrefs.GetString(Constants.PlayerPrefKeys.PlayerBName);
+                            winningScore = playerB.Score;
+                            winningPlayer = playerB.Id;
+                        }
+                    }
+                    else {
+                        if (playerA.Health < playerB.Health) {
+                            winningName = PlayerPrefs.GetString(Constants.PlayerPrefKeys.PlayerBName);
+                            winningScore = playerB.Score;
+                            winningPlayer = playerB.Id;
+                        }
+                    }
+                    
+                    PlayerPrefs.SetString(Constants.PlayerPrefKeys.WinningName, winningName);
+                    PlayerPrefs.SetInt(Constants.PlayerPrefKeys.WinningScore, winningScore);
+                    PlayerPrefs.SetInt(Constants.PlayerPrefKeys.WinningPlayer, winningPlayer);
+
+                    SceneManager.LoadScene("EndGameScreen");
+                }
             }
         }
 
