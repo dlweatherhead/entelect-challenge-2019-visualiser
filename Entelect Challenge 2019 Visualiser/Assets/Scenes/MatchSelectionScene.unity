@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ad009909424562b5021f06b5c1283a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: MatchLoaderTestScene
+  sceneName: IntroSceneLoader
 --- !u!4 &1113420022
 Transform:
   m_ObjectHideFlags: 0
@@ -549,7 +549,7 @@ PrefabInstance:
     - target: {fileID: 4928709993011439744, guid: fb550f8b23cc8024ebafe99ef589f697,
         type: 3}
       propertyPath: directory
-      value: /../../Matches
+      value: \Matches
       objectReference: {fileID: 0}
     - target: {fileID: 4928709993011439744, guid: fb550f8b23cc8024ebafe99ef589f697,
         type: 3}
