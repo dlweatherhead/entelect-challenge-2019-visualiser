@@ -108,6 +108,7 @@ namespace EC2019 {
 
                     var explosionPos = new Vector3(endPos.x + x, 0f, endPos.z + z);
                     var a2 = Instantiate(bananaBombAnimationRadius, explosionPos, Quaternion.identity);
+                    a2.GetComponent<AudioSource>().volume = 0f;
                     Destroy(a2, ReplayManager.globalTimePerRound);
                 }
             }
