@@ -17,13 +17,23 @@ namespace EC2019 {
 
         public GameObject[] delayedAppearObjects;
 
+        private AsyncOperation async;
+        
         void Start() {
+            StartCoroutine(LoadReplaySceneInBackground());
+            
             var cmdLine = new CommandLine();
 
             SetPlayerPrefs(cmdLine);
             LoadPlayerNames();
-
+            
             StartCoroutine(PlayAnimationsAndLoadNextScene());
+        }
+
+        IEnumerator LoadReplaySceneInBackground() {
+            async = SceneManager.LoadSceneAsync("ReplayScene");
+            async.allowSceneActivation = false;
+            yield return async;
         }
 
         private IEnumerator PlayAnimationsAndLoadNextScene() {
@@ -36,7 +46,7 @@ namespace EC2019 {
             yield return new WaitForSeconds(loadSceneDelayTime);
 
             Debug.Log("Loading Replay Scene");
-            SceneManager.LoadSceneAsync(sceneName);
+            async.allowSceneActivation = true;
         }
 
         private void SetPlayerPrefs(CommandLine cmdLine) {
