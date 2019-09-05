@@ -12,7 +12,7 @@ public class SoundPlayDelay : MonoBehaviour {
 
     void Start() {
         audioSource = GetComponent<AudioSource>();
-        var selectedClip = Random.Range(0, clipArray.Length - 1);
+        var selectedClip = Random.Range(0, clipArray.Length);
         audioSource.clip = clipArray[selectedClip];
         StartCoroutine(PlaySound());
     }

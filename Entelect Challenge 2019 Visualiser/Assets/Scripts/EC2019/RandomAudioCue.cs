@@ -6,7 +6,7 @@ namespace EC2019 {
         public AudioClip[] clips;
     
         void Start() {
-            var selectedAudio = Random.Range(0, clips.Length - 1);
+            var selectedAudio = Random.Range(0, clips.Length);
             var audioSource = GetComponent<AudioSource>();
             audioSource.clip = clips[selectedAudio];
             audioSource.Play();
