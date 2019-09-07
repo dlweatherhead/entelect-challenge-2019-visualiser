@@ -180,7 +180,7 @@ namespace EC2019 {
             var end = visualiserEvent.PositionEnd;
             var endPos = new Vector3(end.x, 0f, end.y);
 
-            var o = Instantiate(nothingAnimation, endPos, Quaternion.identity);
+            var o = Instantiate(digAnimation, endPos, Quaternion.identity);
 
             Destroy(o, ReplayManager.globalTimePerRound);
         }

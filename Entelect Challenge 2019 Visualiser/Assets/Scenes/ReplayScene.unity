@@ -1039,7 +1039,8 @@ MonoBehaviour:
   bananaAnimationB: {fileID: 312362533944603987, guid: c4b116eb103198649b7242addcbfd209,
     type: 3}
   moveAnimation: {fileID: 0}
-  digAnimation: {fileID: 0}
+  digAnimation: {fileID: 4542818439824662553, guid: aba863f9b87bb3f4e886243291d730e5,
+    type: 3}
   selectAnimation: {fileID: 0}
   nothingAnimation: {fileID: 1430970005554194656, guid: 9316a8c1f11c74848b857f4f78f91d50,
     type: 3}
@@ -1636,12 +1637,12 @@ PrefabInstance:
     - target: {fileID: 6990099451792158674, guid: 0fed337012a7b714a9bc2be341eecf32,
         type: 3}
       propertyPath: m_Pitch
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6990099451792158674, guid: 0fed337012a7b714a9bc2be341eecf32,
         type: 3}
       propertyPath: m_Volume
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fed337012a7b714a9bc2be341eecf32, type: 3}
