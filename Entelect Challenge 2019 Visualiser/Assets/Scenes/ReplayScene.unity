@@ -1041,7 +1041,8 @@ MonoBehaviour:
   moveAnimation: {fileID: 0}
   digAnimation: {fileID: 4542818439824662553, guid: aba863f9b87bb3f4e886243291d730e5,
     type: 3}
-  selectAnimation: {fileID: 0}
+  selectAnimation: {fileID: 1447150331357476469, guid: c007e75b6e8cb1140a7686fa9c80fb69,
+    type: 3}
   nothingAnimation: {fileID: 1430970005554194656, guid: 9316a8c1f11c74848b857f4f78f91d50,
     type: 3}
   moveSounds: {fileID: 2122053819}
