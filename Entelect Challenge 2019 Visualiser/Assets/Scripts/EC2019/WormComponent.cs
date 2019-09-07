@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using EC2019.Entity;
 using UnityEngine;
 
@@ -19,6 +17,8 @@ namespace EC2019 {
         private Vector3 target;
         private bool isMoving;
 
+        public RandomClipPlayer frozenSoundPlayer;
+
         void Start() {
             ReplayManager.nextRoundUpdateWormsEvent += UpdateWorm;
         }
@@ -32,6 +32,13 @@ namespace EC2019 {
                         StartCoroutine(DeathAnimationAndDestroyWorm());
                     }
                     else {
+                        if(worm.RoundsUntilUnfrozen > 0 && worm.RoundsUntilUnfrozen < 4)
+                        {
+                            if (Random.Range(0, 4) == 0) {
+                                frozenSoundPlayer.PlayRandomSound(playerId);
+                            }
+                        }
+                        
                         UpdateWormPosition(worm.Position);                        
                     }
                 }

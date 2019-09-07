@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using EC2019.Entity;
 using EC2019.Utility;
@@ -22,17 +21,19 @@ namespace EC2019 {
         public GameObject snowballAnimationB;
         public GameObject bananaAnimationA;
         public GameObject bananaAnimationB;
-
-        public Material moveMaterial;
-        public GameObject moveAnimation;
-
-        public Material digMaterial;
-        public GameObject digAnimation;
-
-        public Material selectMaterial;
-        public GameObject selectAnimation;
         
+        public GameObject moveAnimation;
+        public GameObject digAnimation;
+        public GameObject selectAnimation;
         public GameObject nothingAnimation;
+
+        public RandomClipPlayer moveSounds;
+        public RandomClipPlayer digSounds;
+        public RandomClipPlayer nothingSounds;
+        public RandomClipPlayer selectSounds;
+        public RandomClipPlayer throwSounds;
+        public RandomClipPlayer wormOuchSounds;
+        public RandomClipPlayer wormQuipSounds;
 
         public void processVisualisations(List<VisualiserEvent> visualiserEvents) {
             foreach (var visualiserEvent in visualiserEvents) {
@@ -64,6 +65,8 @@ namespace EC2019 {
         }
 
         private IEnumerator handleShootEvent(VisualiserEvent visualiserEvent) {
+            throwSounds.PlayRandomSound(visualiserEvent.WormCommanded.PlayerId);
+            
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
 
@@ -81,9 +84,18 @@ namespace EC2019 {
             yield return new WaitForSeconds(ReplayManager.globalTimePerRound/2f);
 
             Instantiate(shootingHitAnimation, endPos, Quaternion.identity);
+            
+            if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
+                wormOuchSounds.PlayRandomSound(Constants.PlayerB.Number);
+            }
+            else {
+                wormOuchSounds.PlayRandomSound(Constants.PlayerA.Number);
+            }
         }
 
         private IEnumerator handleBananaBombEvent(VisualiserEvent visualiserEvent) {
+            throwSounds.PlayRandomSound(visualiserEvent.WormCommanded.PlayerId);
+            
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
 
@@ -108,15 +120,25 @@ namespace EC2019 {
 
                     var explosionPos = new Vector3(endPos.x + x, 0f, endPos.z + z);
                     var a2 = Instantiate(bananaBombAnimationRadius, explosionPos, Quaternion.identity);
+                    a2.GetComponent<AudioSource>().volume = 0f;
                     Destroy(a2, ReplayManager.globalTimePerRound);
                 }
             }
 
             var a1 = Instantiate(bananaBombAnimationCenter, endPos, Quaternion.identity);
             Destroy(a1, ReplayManager.globalTimePerRound);
+            
+            if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
+                wormOuchSounds.PlayRandomSound(Constants.PlayerB.Number);
+            }
+            else {
+                wormOuchSounds.PlayRandomSound(Constants.PlayerA.Number);
+            }
         }
 
         private IEnumerator handleSnowBallEvent(VisualiserEvent visualiserEvent) {
+            throwSounds.PlayRandomSound(visualiserEvent.WormCommanded.PlayerId);
+            
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
 
@@ -139,21 +161,26 @@ namespace EC2019 {
                 
                 Destroy(a, ReplayManager.globalTimePerRound);
             }
+            
+            if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
+                wormOuchSounds.PlayRandomSound(Constants.PlayerB.Number);
+            }
+            else {
+                wormOuchSounds.PlayRandomSound(Constants.PlayerA.Number);
+            }
         }
 
         private void handleMoveEvent(VisualiserEvent visualiserEvent) {
-            // No-op
-            // Todo - Add animation event or tiles indicating move path
+            moveSounds.PlayRandomSound(visualiserEvent.WormCommanded.PlayerId);
         }
 
         private void handleDigEvent(VisualiserEvent visualiserEvent) {
-            var endPos = visualiserEvent.PositionEnd;
+            digSounds.PlayRandomSound(visualiserEvent.WormCommanded.PlayerId);
+            
+            var end = visualiserEvent.PositionEnd;
+            var endPos = new Vector3(end.x, 0f, end.y);
 
-            var o = new GameObject();
-            var lineRenderer = o.AddComponent<MeshRenderer>();
-            lineRenderer.material = digMaterial;
-
-            o.transform.position = new Vector3(endPos.x, 0f, endPos.y);
+            var o = Instantiate(nothingAnimation, endPos, Quaternion.identity);
 
             Destroy(o, ReplayManager.globalTimePerRound);
         }
@@ -164,6 +191,8 @@ namespace EC2019 {
 
         private void handleNothingEvent(VisualiserEvent visualiserEvent) {
             var wormCommanded = visualiserEvent.WormCommanded;
+            
+            wormQuipSounds.PlayRandomSound(wormCommanded.PlayerId);
 
             var worms = GameObject.FindGameObjectsWithTag(Constants.Tags.Worm);
             
@@ -175,23 +204,6 @@ namespace EC2019 {
                     Destroy(g, ReplayManager.globalTimePerRound);
                 }
             }
-        }
-        
-        private void drawLine(Vector3 start, Vector3 end, Material material) {
-            
-            var updatedStartPos = new Vector3(start.x, 0.5f, start.z);
-            var updatedEndPos = new Vector3(end.x, 0.5f, end.z);
-            
-            var o = new GameObject();
-            var lineRenderer = o.AddComponent<LineRenderer>();
-            lineRenderer.material = material;
-            lineRenderer.widthMultiplier = 0.2f;
-            lineRenderer.positionCount = 2;
-            lineRenderer.sortingLayerName = "Lines";
-            lineRenderer.SetPosition(0, updatedStartPos);
-            lineRenderer.SetPosition(1, updatedEndPos);
-
-            Destroy(o, ReplayManager.globalTimePerRound);
         }
     }
 }
