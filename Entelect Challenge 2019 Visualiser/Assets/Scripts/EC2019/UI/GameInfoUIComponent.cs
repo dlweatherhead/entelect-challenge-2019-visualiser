@@ -11,9 +11,11 @@ namespace EC2019.UI {
 
         public SimpleHealthBar player_A_Health;
         public TMP_Text player_A_Score;
+        public TMP_Text player_A_SelectsRemaining;
         
         public SimpleHealthBar player_B_Health;
         public TMP_Text player_B_Score;
+        public TMP_Text player_B_SelectsRemaining;
 
         public string roundPrependText = "Round ";
         public TMP_Text roundNumber;
@@ -34,6 +36,9 @@ namespace EC2019.UI {
             player_B_Score.text = round.Opponents[1].Score.ToString();
 
             roundNumber.text = roundPrependText + round.CurrentRound;
+
+            player_A_SelectsRemaining.text = round.Opponents[0].RemainingWormSelection.ToString();
+            player_B_SelectsRemaining.text = round.Opponents[1].RemainingWormSelection.ToString();
         }
     }
 }

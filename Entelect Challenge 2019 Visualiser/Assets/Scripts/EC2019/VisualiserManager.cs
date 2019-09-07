@@ -180,13 +180,26 @@ namespace EC2019 {
             var end = visualiserEvent.PositionEnd;
             var endPos = new Vector3(end.x, 0f, end.y);
 
-            var o = Instantiate(nothingAnimation, endPos, Quaternion.identity);
+            var o = Instantiate(digAnimation, endPos, Quaternion.identity);
 
             Destroy(o, ReplayManager.globalTimePerRound);
         }
 
         private void handleSelectEvent(VisualiserEvent visualiserEvent) {
-            Debug.Log("Worm selected");
+            selectSounds.PlayRandomSound(visualiserEvent.WormCommanded.PlayerId);
+
+            var wormCommanded = visualiserEvent.WormCommanded;
+            var worms = GameObject.FindGameObjectsWithTag(Constants.Tags.Worm);
+
+            foreach (var worm in worms) {
+                var wormComponent = worm.GetComponent<WormComponent>();
+                if (wormComponent.playerId == wormCommanded.PlayerId &&
+                    wormComponent.id == wormCommanded.Id) {
+                    var o = Instantiate(selectAnimation, wormComponent.transform.position, Quaternion.identity);
+                    Destroy(o, ReplayManager.globalTimePerRound);
+                    break;
+                }
+            }
         }
 
         private void handleNothingEvent(VisualiserEvent visualiserEvent) {
