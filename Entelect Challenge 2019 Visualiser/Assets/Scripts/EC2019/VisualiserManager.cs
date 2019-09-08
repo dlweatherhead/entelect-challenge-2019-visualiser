@@ -118,10 +118,14 @@ namespace EC2019 {
                         continue;
                     }
 
-                    var explosionPos = new Vector3(endPos.x + x, 0f, endPos.z + z);
-                    var a2 = Instantiate(bananaBombAnimationRadius, explosionPos, Quaternion.identity);
-                    a2.GetComponent<AudioSource>().volume = 0f;
-                    Destroy(a2, ReplayManager.globalTimePerRound);
+                    if (2 >= Mathf.Abs(x) && z == 0 ||
+                        2 >= Mathf.Abs(z) && x == 0 ||
+                        1 == Mathf.Abs(x) && 1 == Mathf.Abs(z)) {
+                        var explosionPos = new Vector3(endPos.x + x, 0f, endPos.z + z);
+                        var a2 = Instantiate(bananaBombAnimationRadius, explosionPos, Quaternion.identity);
+                        a2.GetComponent<AudioSource>().volume = 0f;
+                        Destroy(a2, ReplayManager.globalTimePerRound);                        
+                    }
                 }
             }
 
