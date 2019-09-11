@@ -46,6 +46,12 @@ namespace EC2019 {
             StartCoroutine(GameLoop());
         }
 
+        public void Update() {
+            if (Input.GetKeyDown(KeyCode.Q)) {
+                Application.Quit();
+            }
+        }
+
         private IEnumerator GameLoop() {
             while (true) {
                 var round = replayRepo.GetRound(currentRound);
