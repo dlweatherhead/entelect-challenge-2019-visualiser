@@ -11,6 +11,8 @@ namespace EC2019 {
         public GameObject spaceTile;
         public GameObject frozenTile;
 
+        public GameObject healthPack;
+        
         private static int randomAir = -1;
         private static int randomDirt = -1;
 
@@ -43,6 +45,13 @@ namespace EC2019 {
             }
             else {
                 frozenTile.SetActive(false);
+            }
+
+            if (tile.PowerUp != null && tile.PowerUp.Type.Equals(PowerUpType.HEALTH_PACK)) {
+                healthPack.SetActive(true);
+            }
+            else {
+                healthPack.SetActive(false);
             }
         }
     }
