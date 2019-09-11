@@ -35,6 +35,8 @@ namespace EC2019 {
 
         private void Awake() {
             singleCamera = FindObjectOfType<SingleScreenCameraController>();
+            currentRound = PlayerPrefs.GetInt(Constants.PlayerPrefKeys.RoundStep);
+            timePerRound = PlayerPrefs.GetFloat(Constants.PlayerPrefKeys.StepTime);
             globalTimePerRound = timePerRound;
         }
 
