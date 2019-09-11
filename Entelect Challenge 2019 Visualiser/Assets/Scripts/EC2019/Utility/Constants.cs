@@ -46,6 +46,8 @@ namespace EC2019.Utility {
             public const string WinningScore = "WinningScore";
             public const string WinningName = "WinningName";
             public const string WinningPlayer = "WinningPlayer";
+            public const string MaxCameraZoom = "MaxCameraZoom";
+            public const string CameraSensitivity = "CameraSensitivity";
         }
 
         public static class Paths {

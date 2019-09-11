@@ -14,9 +14,15 @@ namespace EC2019.Camera {
 
         private Vector3 moveEndMarker;
 
+        public float maxCameraZoom;
+        public float minCameraZoom = 14f;
+        public float cameraSensitivity;
+        
         public void Start() {
             moveEndMarker = transform.position;
             sizeEndMarker = myCamera.orthographicSize;
+            maxCameraZoom = PlayerPrefs.GetFloat(Constants.PlayerPrefKeys.MaxCameraZoom, 7f);
+            cameraSensitivity = PlayerPrefs.GetFloat(Constants.PlayerPrefKeys.CameraSensitivity, 0.6f);
         }
 
         public void Update() {
@@ -65,10 +71,10 @@ namespace EC2019.Camera {
             var delta_x = x_right - x_left;
             var delta_z = z_high - z_low;
             var maxDelta = delta_x > delta_z ? delta_x : delta_z;
-            var newCameraSize = maxDelta < 1f ? myCamera.orthographicSize : maxDelta * 0.5f;
+            var newCameraSize = maxDelta * cameraSensitivity;
 
             startTime = Time.time;
-            sizeEndMarker = newCameraSize;
+            sizeEndMarker = Mathf.Clamp(newCameraSize, maxCameraZoom, minCameraZoom);
             moveEndMarker = midPoint;
         }
     }
