@@ -1491,8 +1491,8 @@ MonoBehaviour:
   visualiserManager: {fileID: 1357594485}
   replayRepo: {fileID: 1357594483}
   timePerRound: 1
-  cameraMotionDelay: 0.5
-  currentRound: 75
+  cameraMotionDelay: 0.25
+  currentRound: 1
 --- !u!4 &1357594481
 Transform:
   m_ObjectHideFlags: 0

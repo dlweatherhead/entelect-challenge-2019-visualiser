@@ -70,21 +70,22 @@ namespace EC2019 {
             var start = visualiserEvent.PositionStart;
             var end = visualiserEvent.PositionEnd;
 
-            var startPos = new Vector3(start.x, 0f, start.y);
-            var endPos = new Vector3(end.x, 0f, end.y);
+            var startPos = new Vector3(start.x, 0.5f, start.y);
+            var endPos = new Vector3(end.x, 0.5f, end.y);
 
-            if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
-                var o = Instantiate(bombAnimationA, startPos, Quaternion.identity);
-                o.GetComponent<ThrowAnimation>().destination = endPos;
-            } else if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerB.Number) {
-                var o = Instantiate(bombAnimationB, startPos, Quaternion.identity);
-                o.GetComponent<ThrowAnimation>().destination = endPos;
-            }
-            
             yield return new WaitForSeconds(ReplayManager.globalTimePerRound/2f);
 
             Instantiate(shootingHitAnimation, endPos, Quaternion.identity);
-            
+            if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
+                Material mat = new Material(Shader.Find("Unlit/Color"));
+                mat.color = ColorPalette.PlayerA;
+                drawLine(startPos, endPos, mat);
+            } else if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerB.Number) {
+                Material mat = new Material(Shader.Find("Unlit/Color"));
+                mat.color = ColorPalette.PlayerB;
+                drawLine(startPos, endPos, mat);
+            }
+
             if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
                 wormOuchSounds.PlayRandomSound(Constants.PlayerB.Number);
             }
@@ -221,6 +222,18 @@ namespace EC2019 {
                     Destroy(g, ReplayManager.globalTimePerRound);
                 }
             }
+        }
+        
+        private void drawLine(Vector3 start, Vector3 end, Material material) {
+            var o = new GameObject();
+            var lineRenderer = o.AddComponent<LineRenderer>();
+            lineRenderer.material = material;
+            lineRenderer.widthMultiplier = 0.22f;
+            lineRenderer.positionCount = 2;
+            lineRenderer.SetPosition(0, start);
+            lineRenderer.SetPosition(1, end);
+
+            Destroy(o, 0.4f);
         }
     }
 }
