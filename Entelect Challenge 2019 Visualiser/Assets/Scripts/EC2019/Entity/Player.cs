@@ -17,7 +17,7 @@ namespace EC2019.Entity {
         [JsonProperty("currentWormId")]
         public int CurrentWormId { get; set; }
         
-        [JsonProperty("remainingWormSelected")]
+        [JsonProperty("remainingWormSelections")]
         public int RemainingWormSelection { get; set; }
         
         [JsonProperty("worms")]
