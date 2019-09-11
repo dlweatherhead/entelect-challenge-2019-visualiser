@@ -1,27 +1,7 @@
 TODO List
 
-- Added throwing animation for worm
-- Implement worm animation switching (moving, idle, throwing, etc.)
-- Implement worm digging animation
-
-- Implement worm death animation
-- Removing/destroying worm from camera control
-- Implement worm death avatar
-
-- Implement player name loading (for loading screen and replay manager)
-
-- Implement versus/loading screen
-- Implement winning screen
-
-- Implement rock destroy animation
-
-- Implement select animation
-
-- Rearrange UI layout
-- Remove worms damage/range
-- Add player Select count
+- Shoot Animation Material
 
 Add Command Prompt
-    Implement game speed argument
-    Implement match directory argument
-    Load arguments in to Replay Manager
+	Camera Max zoom in
+	Camera sensitivity

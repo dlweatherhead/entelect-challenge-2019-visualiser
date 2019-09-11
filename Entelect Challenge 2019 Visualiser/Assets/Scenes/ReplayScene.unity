@@ -1594,6 +1594,10 @@ MonoBehaviour:
   throwSounds: {fileID: 747760832}
   wormOuchSounds: {fileID: 1973659461}
   wormQuipSounds: {fileID: 984291741}
+  materialPlayerAShoot: {fileID: 2100000, guid: 62b58cfe31ce28c4dac7186d234aa92a,
+    type: 2}
+  materialPlayerBShoot: {fileID: 2100000, guid: a76bbf53b9b6d7e49beeedb3a6ca7c33,
+    type: 2}
 --- !u!1 &1392884690
 GameObject:
   m_ObjectHideFlags: 0
