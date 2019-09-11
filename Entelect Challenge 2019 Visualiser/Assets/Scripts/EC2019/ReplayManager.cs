@@ -35,6 +35,8 @@ namespace EC2019 {
 
         private void Awake() {
             singleCamera = FindObjectOfType<SingleScreenCameraController>();
+            currentRound = PlayerPrefs.GetInt(Constants.PlayerPrefKeys.RoundStep);
+            timePerRound = PlayerPrefs.GetFloat(Constants.PlayerPrefKeys.StepTime);
             globalTimePerRound = timePerRound;
         }
 
@@ -44,6 +46,12 @@ namespace EC2019 {
 
         private void RoundsReady() {
             StartCoroutine(GameLoop());
+        }
+
+        public void Update() {
+            if (Input.GetKeyDown(KeyCode.Q)) {
+                Application.Quit();
+            }
         }
 
         private IEnumerator GameLoop() {

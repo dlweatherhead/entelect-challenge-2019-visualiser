@@ -31,7 +31,7 @@ namespace EC2019.Utility {
         }
         
         public float GetStepTime() {
-            return argumentDictionary.ContainsKey(StepTime) ? int.Parse(argumentDictionary[StepTime]) : 1f;
+            return argumentDictionary.ContainsKey(StepTime) ? float.Parse(argumentDictionary[StepTime]) : 1f;
         }
         
         public string GetMatchRound() {
