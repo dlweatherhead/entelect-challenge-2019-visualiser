@@ -35,6 +35,9 @@ namespace EC2019 {
         public RandomClipPlayer wormOuchSounds;
         public RandomClipPlayer wormQuipSounds;
 
+        public Material materialPlayerAShoot;
+        public Material materialPlayerBShoot;
+
         public void processVisualisations(List<VisualiserEvent> visualiserEvents) {
             foreach (var visualiserEvent in visualiserEvents) {
                 if (visualiserEvent.Type.Equals("shoot")) {
@@ -77,13 +80,9 @@ namespace EC2019 {
 
             Instantiate(shootingHitAnimation, endPos, Quaternion.identity);
             if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {
-                Material mat = new Material(Shader.Find("Unlit/Color"));
-                mat.color = ColorPalette.PlayerA;
-                drawLine(startPos, endPos, mat);
+                drawLine(startPos, endPos, materialPlayerAShoot);
             } else if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerB.Number) {
-                Material mat = new Material(Shader.Find("Unlit/Color"));
-                mat.color = ColorPalette.PlayerB;
-                drawLine(startPos, endPos, mat);
+                drawLine(startPos, endPos, materialPlayerBShoot);
             }
 
             if (visualiserEvent.WormCommanded.PlayerId == Constants.PlayerA.Number) {

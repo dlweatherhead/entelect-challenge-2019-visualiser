@@ -7,6 +7,9 @@ namespace EC2019.Utility {
         private const string StepTime = "--step-time";
         private const string ReplayMatch = "--replay-match";
 
+        private const string CameraMaxZoom = "--max-zoom";
+        private const string CameraSensitivity = "--camera-sensitivity";
+
         private readonly Dictionary<string, string> argumentDictionary;
 
         public CommandLine() {
@@ -32,6 +35,14 @@ namespace EC2019.Utility {
         
         public float GetStepTime() {
             return argumentDictionary.ContainsKey(StepTime) ? float.Parse(argumentDictionary[StepTime]) : 1f;
+        }
+        
+        public float GetCameraMaxZoom() {
+            return argumentDictionary.ContainsKey(CameraMaxZoom) ? float.Parse(argumentDictionary[CameraMaxZoom]) : 7f;
+        }
+        
+        public float GetCameraSensitivity() {
+            return argumentDictionary.ContainsKey(CameraSensitivity) ? float.Parse(argumentDictionary[CameraSensitivity]) : 0.6f;
         }
         
         public string GetMatchRound() {

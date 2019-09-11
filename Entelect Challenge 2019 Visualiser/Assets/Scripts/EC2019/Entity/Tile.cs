@@ -16,5 +16,8 @@ namespace EC2019.Entity {
         
         [JsonProperty("occupier")]
         public Worm Occupier { get; set; }
+        
+        [JsonProperty("powerup")]
+        public PowerUp PowerUp { get; set; }
     }
 }

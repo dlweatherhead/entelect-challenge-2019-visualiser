@@ -52,6 +52,8 @@ namespace EC2019 {
         private void SetPlayerPrefs(CommandLine cmdLine) {
             PlayerPrefs.SetInt(Constants.PlayerPrefKeys.RoundStep, cmdLine.GetRoundStep());
             PlayerPrefs.SetFloat(Constants.PlayerPrefKeys.StepTime, cmdLine.GetStepTime());
+            PlayerPrefs.SetFloat(Constants.PlayerPrefKeys.MaxCameraZoom, cmdLine.GetCameraMaxZoom());
+            PlayerPrefs.SetFloat(Constants.PlayerPrefKeys.CameraSensitivity, cmdLine.GetCameraSensitivity());
         }
 
         private void LoadPlayerNames() {
