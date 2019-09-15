@@ -25,6 +25,10 @@ namespace EC2019.Utility {
                     argumentDictionary.Add(StepTime, arguments[i + 1]);
                 } else if (arguments[i] == ReplayMatch) {
                     argumentDictionary.Add(ReplayMatch, arguments[i + 1]);
+                } else if (arguments[i] == CameraMaxZoom) {
+                    argumentDictionary.Add(CameraMaxZoom, arguments[i + 1]);
+                } else if (arguments[i] == CameraSensitivity) {
+                    argumentDictionary.Add(CameraSensitivity, arguments[i + 1]);
                 }
             }
         }
@@ -34,7 +38,7 @@ namespace EC2019.Utility {
         }
         
         public float GetStepTime() {
-            return argumentDictionary.ContainsKey(StepTime) ? float.Parse(argumentDictionary[StepTime]) : 1f;
+            return argumentDictionary.ContainsKey(StepTime) ? float.Parse(argumentDictionary[StepTime]) : 0.25f;
         }
         
         public float GetCameraMaxZoom() {
