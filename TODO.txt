@@ -1,0 +1,7 @@
+TODO List
+
+- Shoot Animation Material
+
+Add Command Prompt
+	Camera Max zoom in
+	Camera sensitivity

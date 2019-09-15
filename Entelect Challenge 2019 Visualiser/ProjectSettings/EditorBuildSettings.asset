@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MatchSelectionScene.unity
+    guid: 22f12624a30a64bd5864647e5e4a0d19
+  - enabled: 1
+    path: Assets/Scenes/IntroSceneLoader.unity
+    guid: 643dba7324efed845a780857cd02817c
+  - enabled: 1
+    path: Assets/Scenes/ReplayScene.unity
+    guid: edf8f9230897e024383b46ca9c9689ea
+  - enabled: 1
+    path: Assets/Scenes/EndGameScreen.unity
+    guid: 5cdcbeba440fc4e41a01332468bc54bf
+  m_configObjects: {}
